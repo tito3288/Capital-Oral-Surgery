@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #06333b;
+  --color-secondary: #00a9c0;
+  --color-accent: #63e8f7;
+  --color-accent-alt: #00e0ff;
+  --color-background: #f4f1eb;
+  --color-foreground: #0f172a;
+  --color-muted: #475569;
+  --color-neutral-dark: #020617;
+
+  --font-heading: Georgia, Cambria, "Times New Roman", serif;
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.serif {
+  font-family: var(--font-heading);
+}
