@@ -1,49 +1,61 @@
-# Build the Capital Oral Surgery homepage — Phase 2 (Design)
+# Capital Oral Surgery - Future Build Prompt
 
-You are Claude Code running inside Cursor. The scaffolded Astro project for **Capital Oral Surgery** is open as the workspace, and the design hand-off files are already in this workspace.
+You are working in the Astro project for Capital Oral Surgery. The current homepage design has been rebuilt from approved screenshots and is the visual source of truth for future pages and edits.
 
-## Source of truth (already in this workspace)
+## Read First
 
-- `design/index.html` — the rendered homepage mockup (frozen reference)
-- `BLUEPRINT.md` — design intent: vibe, sections, typography, palette, spacing, unique treatments
-- `theme.config.ts` — extracted theme tokens (colors, fonts, radius). You will move this to `src/lib/theme.config.ts` in step 1; from then on, treat `src/lib/theme.config.ts` as the canonical theme source.
+Before making design or page changes, read:
 
-Read all three before writing any code.
+- `BLUEPRINT.md` - current design direction and section patterns
+- `src/lib/theme.config.ts` - canonical theme tokens
+- `src/styles/global.css` - Tailwind v4 token mirror and global utilities
+- Existing components in `src/components/` - especially `Header`, `Hero`, `SpecializedCare`, `MeetTeam`, `Procedures`, `Testimonial`, `CallToAction`, and `Footer`
 
-## What to do
+Do not use `design/index.html` as an old generated mockup. It is only a compact current-design reference now.
 
-1. **Move `theme.config.ts` into `src/lib/`.** Before anything else, move `theme.config.ts` from this folder into `src/lib/theme.config.ts` so all live code lives under `src/`. The `design/` folder remains a frozen reference (only `index.html` and any other reference assets stay there). Update any imports to point at the new path.
+## Design Rules
 
-2. **Wire the theme tokens into Tailwind.** First, detect which Tailwind version was installed by `astro add tailwind`:
-   - Check `package.json` for `tailwindcss` (or `@tailwindcss/vite`) — if the major version is **4 or higher**, use the v4 CSS-first config: define an `@theme` block in your global stylesheet (typically `src/styles/global.css`) and mirror the values from `theme.config.ts` into it (CSS custom properties like `--color-primary`, `--font-heading`, `--radius-md`). Keep `theme.config.ts` as-is so non-CSS code can still import it.
-   - If the major version is **3**, use the v3 JS config: create/update `tailwind.config.ts` to import `theme.config.ts` and drive `theme.extend.colors`, `theme.extend.fontFamily`, and `theme.extend.borderRadius` from it.
+- Keep the calm, specialized oral-surgery aesthetic from the current homepage.
+- Use semantic token classes such as `bg-midnight`, `bg-secondary`, `bg-aqua-soft`, `text-foreground`, `text-muted`, `border-line`, and `placeholder:text-placeholder`.
+- Do not add raw hex colors inside components. Add a token first if a new reusable color is truly needed.
+- Use `.serif` for major editorial headings and patient-facing quote text.
+- Use small uppercase, widely tracked eyebrows for section labels.
+- Preserve stable image aspect ratios with `aspect-*` placeholders until final images are provided.
+- Prefer simple full-width bands, two-column sections, and restrained cards. Avoid glassmorphism, gradient overlays, overlapping info-card blocks, decorative blobs, or heavy marketing-style layouts.
+- Make every new section responsive from mobile through desktop.
 
-   Either way, the goal is: tokens live in `theme.config.ts` (or its CSS mirror), and components reference them by semantic name. **No hard-coded hex values in components.**
+## Current Homepage Order
 
-3. **Color naming — handle the mockup's class style, do NOT ask the user.** Inspect the color classes used in `design/index.html` and decide which case applies:
+The homepage is:
 
-   - **Case A — stock Tailwind palette classes** (e.g. `bg-stone-50`, `text-slate-900`, `border-zinc-200`): these are placeholders, not design tokens. **Translate them to the semantic tokens** in `src/lib/theme.config.ts` — e.g. `bg-stone-50` → `bg-background`, `text-slate-900` → `text-foreground`. Components reference the semantic names; the raw palette names disappear.
+1. `Header`
+2. `Hero`
+3. `SpecializedCare`
+4. `MeetTeam`
+5. `Procedures`
+6. `Testimonial`
+7. `CallToAction`
+8. `Footer`
 
-   - **Case B — brand-evocative custom names** (e.g. `bg-sage`, `bg-lavender`, `text-cream`, `bg-warmGray`): these are meaningful brand tokens. **Keep them as-is in components** AND **add them as aliases in `src/lib/theme.config.ts`** so the TS file still drives the values. Then expose the same names in Tailwind (v4 `@theme` block, or v3 `theme.extend.colors`). Both the mockup HTML and your components reference the same brand names — no rename pass needed.
+New pages should reuse `Layout`, `Header`, and `Footer`, then build content with the same typography, color palette, spacing, and section rhythm.
 
-   - **Case C — mixed**: prefer the brand names (more design-meaningful). For any stock palette class describing the same color as a brand name, replace with the brand name.
+## Anchors
 
-   In all cases, components must never reference hex values directly — every color goes through `src/lib/theme.config.ts` (or its CSS-mirror in v4). Pick the case that matches the mockup and proceed; do not stop to ask the user which naming style to use.
+The main homepage anchors are:
 
-4. **Recreate the homepage** as accessible Astro components, section by section, faithful to `design/index.html` and `BLUEPRINT.md`. Break the page into reusable `.astro` components under `src/components/`.
+- `#about`
+- `#team`
+- `#procedures`
+- `#testimonial`
+- `#appointment`
 
-5. **Use the mockup's copy literally.** When recreating each section, use the exact text content as it appears in `design/index.html` — headings, body copy, button labels, testimonials, navigation links. The mockup was generated with the client's real voice and services in mind (often pulled from their existing site). Only invent new copy if a section is genuinely incomplete in the mockup; never lorem ipsum, never paraphrase the mockup's wording.
+Header navigation and appointment CTAs should keep pointing to these unless the site gets dedicated pages later.
 
-6. **Fully responsive** (mobile, tablet, desktop). Mobile-first. The viewport meta tag is already in Astro's default layout — confirm it. **If the mockup includes a mobile hamburger menu button, implement it as a functional toggle** (a small inline `<script>` controlling a hidden drawer, or an Astro client directive). Do NOT ship a button that does nothing just because the mockup omitted the drawer behavior — that's a mockup limitation, not a design choice.
+## Verification
 
-7. **Accessibility** — semantic HTML, descriptive alt text, keyboard navigation, sufficient color contrast. Note any contrast issues that fall below WCAG AA in the hand-off summary; do not silently downgrade them.
+After code changes, run:
 
-8. **SEO-ready** — `<title>`, meta description, Open Graph tags, canonical URL.
+- `npx astro check`
+- `npx astro build`
 
-9. **Verify** — run `npx astro check` and `npx astro build`. Fix any errors before reporting done.
-
-## Hand-off back to the user
-
-When done, summarize what was built section by section, and note any decisions you made (e.g. invented copy, breakpoints not present in the mockup, components extracted).
-
-The slugified project name is `capital-oral-surgery`.
+For layout changes, inspect desktop and mobile browser views before handing work back.

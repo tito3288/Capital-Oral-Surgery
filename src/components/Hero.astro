@@ -1,61 +1,93 @@
 ---
 ---
 
-<section class="relative min-h-[720px] overflow-hidden">
-  <img
-    src="/images/hero.jpg"
-    alt=""
-    aria-hidden="true"
-    class="absolute inset-0 h-full w-full object-cover"
-    width="5184"
-    height="3456"
-    loading="eager"
-    fetchpriority="high"
-  />
-
-  <div class="absolute inset-0 bg-neutral-dark/65"></div>
+<section class="flex min-h-[calc(100dvh-76px)] items-center bg-midnight text-surface">
   <div
-    class="absolute inset-0"
-    style="background-image:
-      radial-gradient(circle at center, color-mix(in srgb, var(--color-secondary) 35%, transparent), transparent 34%),
-      linear-gradient(to top, color-mix(in srgb, var(--color-neutral-dark) 95%, transparent), transparent 55%);"
+    class="mx-auto grid max-w-7xl gap-14 px-5 py-12 lg:grid-cols-[minmax(0,640px)_minmax(420px,468px)] lg:justify-between lg:px-0 lg:py-12"
   >
-  </div>
-
-  <div
-    class="relative z-10 mx-auto flex min-h-[720px] max-w-5xl flex-col items-center justify-center px-5 py-24 text-center"
-  >
-    <p
-      class="mb-5 rounded-full border border-accent/30 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[.28em] text-accent backdrop-blur"
-    >
-      Topeka Oral Surgery & Dental Implants
-    </p>
-
-    <h1
-      class="max-w-4xl text-4xl font-black leading-[.95] tracking-tight text-white sm:text-5xl lg:text-7xl"
-    >
-      Creating Healthy and Beautiful Smiles.
-    </h1>
-
-    <p class="mt-6 max-w-2xl text-lg leading-8 text-white/90 sm:text-xl">
-      Dr. Lucaci, Dr. Barber, Dr. Lonergan and our caring staff provide an
-      exceptional experience, advanced treatment, and brilliant results for
-      every patient.
-    </p>
-
-    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-      <a
-        href="#"
-        class="rounded-full bg-secondary px-8 py-4 text-base font-extrabold text-neutral-dark shadow-xl shadow-secondary/25 transition-opacity hover:opacity-90"
+    <div class="lg:pt-8" data-reveal>
+      <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+        Topeka • Oral & Maxillofacial Surgery
+      </p>
+      <h1
+        class="serif mt-6 max-w-[700px] text-5xl leading-[0.94] text-surface sm:text-6xl lg:mt-5 lg:text-[76px]"
       >
-        Request an Appointment
-      </a>
-      <a
-        href="tel:7855884244"
-        class="rounded-full border border-white/30 bg-white/10 px-8 py-4 text-base font-extrabold text-white backdrop-blur transition-colors hover:bg-white/20"
+        Surgical expertise,<br />
+        <span class="text-secondary">delivered with<br />calm.</span>
+      </h1>
+      <p class="mt-6 max-w-[590px] text-lg leading-8 text-surface/75 sm:text-xl">
+        From wisdom teeth to dental implants and corrective jaw surgery, our
+        three specialists guide you through every step with clarity and care.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:gap-16">
+        <div class="border-l-2 border-secondary pl-5">
+          <p class="serif text-3xl font-bold leading-none">3</p>
+          <p class="mt-2 text-xs font-bold uppercase tracking-[.28em] text-surface/55">
+            Board-Certified Surgeons
+          </p>
+        </div>
+        <div class="sm:pl-1">
+          <p class="serif text-3xl font-bold leading-none">20+</p>
+          <p class="mt-2 text-xs font-bold uppercase tracking-[.28em] text-surface/55">
+            Years Serving Topeka
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          href="#appointment"
+          class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90 sm:min-w-[223px]"
+        >
+          Request Appointment
+        </a>
+        <a
+          href="tel:7852720444"
+          class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
+        >
+          Call (785) 272-0444
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="relative mx-auto w-full max-w-[468px] self-start lg:mx-0 lg:pt-5"
+      data-reveal
+      style="--reveal-delay: 120ms"
+    >
+      <div class="absolute inset-x-0 top-0 bottom-0 rounded-lg border border-secondary/50">
+      </div>
+      <div
+        class="relative mx-2 aspect-[4/5] overflow-hidden rounded-lg bg-surface/5"
       >
-        Call (785) 588-4244
-      </a>
+        <img
+          src="/images/hero.jpg"
+          alt="Capital Oral Surgery consultation room"
+          class="h-full w-full object-cover object-[55%_50%]"
+          width="5184"
+          height="3456"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+      <figure
+        class="relative z-10 mt-5 rounded-lg bg-surface p-5 text-foreground shadow-xl sm:w-[235px] lg:absolute lg:-left-8 lg:bottom-[-3.25rem] lg:mt-0"
+      >
+        <div class="text-lg leading-none text-amber-400" aria-label="5 star review">
+          ★★★★★
+        </div>
+        <blockquote class="mt-3 text-sm leading-5">
+          “Calm, clear, and genuinely kind from start to finish.”
+        </blockquote>
+        <figcaption
+          class="mt-3 text-xs font-bold uppercase tracking-[.26em] text-muted/70"
+        >
+          Topeka Patient<br />
+          Google Review
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>

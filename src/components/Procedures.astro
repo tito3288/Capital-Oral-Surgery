@@ -1,0 +1,76 @@
+---
+const procedures = [
+  {
+    number: "01",
+    title: "Dental Implants",
+    body: "Permanent, natural-feeling tooth replacement.",
+  },
+  {
+    number: "02",
+    title: "Wisdom Teeth",
+    body: "Gentle removal with sedation options.",
+  },
+  {
+    number: "03",
+    title: "Tooth Extractions",
+    body: "Routine and surgical extractions.",
+  },
+  {
+    number: "04",
+    title: "Corrective Jaw Surgery",
+    body: "Orthognathic care for function and balance.",
+  },
+  {
+    number: "05",
+    title: "Bone Grafting",
+    body: "Preparing your jaw for implants.",
+  },
+  {
+    number: "06",
+    title: "Oral Pathology",
+    body: "Diagnosis and treatment of oral lesions.",
+  },
+];
+---
+
+<section
+  id="procedures"
+  class="bg-aqua-soft text-foreground"
+  aria-labelledby="procedures-heading"
+>
+  <div class="mx-auto max-w-7xl px-5 py-20 md:py-24 lg:px-0">
+    <div class="text-center" data-reveal>
+      <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+        Procedures
+      </p>
+      <h2
+        id="procedures-heading"
+        class="serif mx-auto mt-4 max-w-4xl text-4xl leading-tight text-foreground sm:text-5xl"
+      >
+        A complete range of oral surgery
+      </h2>
+    </div>
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        procedures.map(({ number, title, body }, index) => (
+          <article
+            class="rounded-md bg-surface px-8 py-8 shadow-sm lg:h-[180px] lg:pb-6"
+            data-reveal
+            style={`--reveal-delay: ${(index % 3) * 80}ms`}
+          >
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-aqua-pale text-sm font-bold text-secondary">
+              {number}
+            </div>
+            <h3 class="serif mt-7 text-2xl leading-8 font-bold text-foreground lg:mt-6 lg:text-[22px] lg:leading-7">
+              {title}
+            </h3>
+            <p class="mt-3 leading-7 text-muted lg:mt-2 lg:text-[15px] lg:leading-6">
+              {body}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

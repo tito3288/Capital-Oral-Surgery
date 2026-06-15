@@ -1,44 +1,54 @@
 ---
 const navLinks = [
-  { label: "Dental Implants", href: "#" },
-  { label: "Wisdom Teeth", href: "#" },
-  { label: "Procedures", href: "#" },
-  { label: "Meet Us", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#procedures" },
+  { label: "Doctors", href: "#team" },
+  { label: "Contact", href: "#appointment" },
 ];
 ---
 
-<header class="relative z-40 bg-primary text-white">
-  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+<header class="relative z-40 border-b border-surface/5 bg-midnight text-surface">
+  <div
+    class="mx-auto flex min-h-[76px] max-w-[1232px] items-center justify-between px-5"
+  >
     <a href="/" class="inline-flex" aria-label="Capital Oral Surgery — Home">
       <img
         src="/images/logo-header.png"
         alt="Capital Oral Surgery logo"
-        class="h-14 w-auto md:h-16 lg:h-[70px]"
+        class="h-auto max-h-10 w-[min(62vw,11rem)] object-contain md:h-8 md:w-auto md:max-w-none"
         width="2200"
         height="399"
       />
     </a>
 
-    <nav class="hidden gap-7 text-sm font-semibold md:flex" aria-label="Primary">
+    <nav class="hidden gap-9 text-[15px] font-medium lg:flex" aria-label="Primary">
       {
         navLinks.map(({ label, href }) => (
-          <a class="transition-colors hover:text-secondary" href={href}>
+          <a class="transition-colors hover:text-accent" href={href}>
             {label}
           </a>
         ))
       }
     </nav>
 
-    <a
-      href="#"
-      class="hidden rounded-none border-2 border-secondary px-5 py-3 text-sm font-bold uppercase tracking-widest text-accent-alt md:inline-flex"
-    >
-      Request Visit
-    </a>
+    <div class="hidden items-center gap-3 lg:flex">
+      <a
+        href="#appointment"
+        class="inline-flex h-11 items-center rounded-md bg-secondary px-5 text-sm font-bold text-surface transition-opacity hover:opacity-90"
+      >
+        Request Appointment
+      </a>
+      <a
+        href="/referring-doctors"
+        class="inline-flex h-11 items-center rounded-md border border-surface/30 px-5 text-sm font-bold text-surface transition-colors hover:border-secondary hover:text-accent"
+      >
+        Referring Doctors
+      </a>
+    </div>
 
-    <details class="group md:hidden">
+    <details class="group lg:hidden">
       <summary
-        class="flex h-11 w-11 cursor-pointer list-none items-center justify-center border border-white/30 text-white select-none"
+        class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-md border border-surface/30 text-surface select-none"
         aria-label="Toggle navigation menu"
       >
         <svg
@@ -67,20 +77,32 @@ const navLinks = [
           <line x1="18" y1="6" x2="6" y2="18" />
         </svg>
       </summary>
-      <div class="absolute left-0 right-0 top-full bg-primary p-5 shadow-xl">
-        {
-          navLinks.map(({ label, href }) => (
-            <a class="block py-2 hover:text-secondary" href={href}>
-              {label}
+      <div class="absolute left-0 right-0 top-full h-[calc(100dvh-76px)] overflow-y-auto rounded-b-lg bg-midnight shadow-xl">
+        <div class="flex min-h-full flex-col px-5 py-8">
+          <nav aria-label="Mobile primary">
+            {
+              navLinks.map(({ label, href }) => (
+                <a class="block py-3 text-lg hover:text-accent" href={href}>
+                  {label}
+                </a>
+              ))
+            }
+          </nav>
+          <div class="mt-8 grid gap-3 sm:grid-cols-2">
+            <a
+              href="#appointment"
+              class="inline-flex justify-center rounded-md bg-secondary px-5 py-3 text-sm font-bold text-surface"
+            >
+              Request Appointment
             </a>
-          ))
-        }
-        <a
-          href="#"
-          class="mt-3 inline-flex border-2 border-secondary px-5 py-3 text-sm font-bold uppercase tracking-widest text-accent-alt"
-        >
-          Request Visit
-        </a>
+            <a
+              href="/referring-doctors"
+              class="inline-flex justify-center rounded-md border border-surface/30 px-5 py-3 text-sm font-bold text-surface"
+            >
+              Referring Doctors
+            </a>
+          </div>
+        </div>
       </div>
     </details>
   </div>

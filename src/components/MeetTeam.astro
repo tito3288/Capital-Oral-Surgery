@@ -1,0 +1,95 @@
+---
+const doctors = [
+  {
+    name: "Dr. Patrick Lucaci",
+    initials: "PL",
+    image: "/images/doctor-patrick-lucaci.jpg",
+    imageAlt: "Dr. Patrick Lucaci",
+    imageWidth: 600,
+    imageHeight: 600,
+    imagePosition: "50% 45%",
+  },
+  {
+    name: "Dr. Owen Lonergan",
+    initials: "OL",
+    image: "/images/doctor-owen-lonergan.jpg",
+    imageAlt: "Dr. Owen Lonergan",
+    imageWidth: 270,
+    imageHeight: 405,
+    imagePosition: "50% 18%",
+  },
+  {
+    name: "Dr. Emily Eickhoff",
+    initials: "EE",
+    image: "/images/doctor-emily-eickhoff.jpeg",
+    imageAlt: "Dr. Emily Eickhoff",
+    imageWidth: 2048,
+    imageHeight: 1365,
+    imagePosition: "50% 50%",
+  },
+];
+---
+
+<section id="team" class="bg-surface text-foreground" aria-labelledby="team-heading">
+  <div class="mx-auto max-w-7xl px-5 pb-28 pt-10 lg:px-0 lg:pt-12">
+    <div class="text-center" data-reveal>
+      <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+        Meet the Team
+      </p>
+      <h2
+        id="team-heading"
+        class="serif mx-auto mt-4 max-w-4xl text-4xl leading-tight text-foreground sm:text-5xl"
+      >
+        Three specialists. One trusted practice.
+      </h2>
+    </div>
+
+    <div class="mt-16 grid gap-10 md:grid-cols-3">
+      {
+        doctors.map(
+          (
+            { name, initials, image, imageAlt, imageWidth, imageHeight, imagePosition },
+            index,
+          ) => (
+          <article data-reveal style={`--reveal-delay: ${index * 90}ms`}>
+            <div class="relative">
+              <div
+                class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-secondary"
+                aria-hidden="true"
+              >
+              </div>
+              <div
+                class="relative flex aspect-[20/19] items-center justify-center overflow-hidden rounded-lg bg-midnight text-surface"
+                aria-label={image ? undefined : `${name} portrait image placeholder`}
+                role={image ? undefined : "img"}
+              >
+                {
+                  image ? (
+                    <img
+                      src={image}
+                      alt={imageAlt}
+                      class="h-full w-full object-cover"
+                      style={`object-position: ${imagePosition};`}
+                      width={imageWidth}
+                      height={imageHeight}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span class="serif text-5xl font-bold">{initials}</span>
+                  )
+                }
+              </div>
+            </div>
+
+            <h3 class="serif mt-8 text-2xl font-bold text-foreground">{name}</h3>
+            <p class="mt-3 text-xs font-bold uppercase tracking-[.32em] text-secondary">
+              Oral Surgeon in Topeka KS
+            </p>
+          </article>
+          ),
+        )
+      }
+    </div>
+  </div>
+</section>

@@ -1,27 +1,123 @@
 ---
 ---
 
-<section class="px-5 py-24" aria-labelledby="cta-heading">
+<section
+  id="appointment"
+  class="bg-aqua-soft px-5 py-20 text-foreground md:py-24"
+  aria-labelledby="appointment-heading"
+>
   <div
-    class="mx-auto max-w-6xl bg-white p-8 shadow-xl sm:p-12 lg:flex lg:items-center lg:justify-between"
+    class="mx-auto grid max-w-[1160px] gap-14 lg:grid-cols-[minmax(0,540px)_548px] lg:gap-16"
   >
-    <div>
-      <p class="font-bold uppercase tracking-widest text-secondary">
-        Ready for your first visit?
+    <div class="lg:pt-1" data-reveal>
+      <p class="text-xs font-bold tracking-[.34em] text-secondary uppercase">
+        Request Appointment
       </p>
-      <h2 id="cta-heading" class="serif mt-3 text-4xl">
-        Book an appointment today.
+      <h2
+        id="appointment-heading"
+        class="serif mt-4 max-w-[520px] text-4xl leading-tight text-foreground sm:text-5xl"
+      >
+        Let's get you scheduled.
       </h2>
-      <p class="mt-4 max-w-2xl text-muted">
-        Bring your referral slip, x-rays if applicable, medication list, and
-        insurance information to your consultation.
+      <p class="mt-6 max-w-[540px] text-base leading-7 text-muted">
+        Send us a note and our team will reach out within one business day to confirm
+        a time that works for you.
       </p>
+
+      <dl class="mt-9 space-y-4 text-sm text-foreground">
+        <div>
+          <dt class="inline font-bold">Address:</dt>
+          <dd class="inline"> Topeka, Kansas</dd>
+        </div>
+        <div>
+          <dt class="inline font-bold">Phone:</dt>
+          <dd class="inline"> (785) 272-0444</dd>
+        </div>
+        <div>
+          <dt class="inline font-bold">Hours:</dt>
+          <dd class="inline"> Mon-Fri, 8am-5pm</dd>
+        </div>
+      </dl>
     </div>
-    <a
-      href="#"
-      class="mt-8 inline-flex bg-primary px-8 py-4 font-extrabold text-white transition-opacity hover:opacity-90 lg:mt-0"
+
+    <form
+      class="rounded-lg bg-surface p-8 shadow-sm"
+      action="#"
+      method="post"
+      data-reveal
+      style="--reveal-delay: 120ms"
     >
-      Request an Appointment
-    </a>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <label class="sr-only" for="first-name">First name</label>
+        <input
+          id="first-name"
+          name="firstName"
+          type="text"
+          autocomplete="given-name"
+          placeholder="First name"
+          class="h-[46px] w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder"
+        />
+
+        <label class="sr-only" for="last-name">Last name</label>
+        <input
+          id="last-name"
+          name="lastName"
+          type="text"
+          autocomplete="family-name"
+          placeholder="Last name"
+          class="h-[46px] w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder"
+        />
+      </div>
+
+      <label class="sr-only" for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        placeholder="Email"
+        class="mt-4 h-[46px] w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder"
+      />
+
+      <label class="sr-only" for="phone">Phone</label>
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        autocomplete="tel"
+        placeholder="Phone"
+        class="mt-4 h-[46px] w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder"
+      />
+
+      <label class="sr-only" for="visit-reason">Reason for visit</label>
+      <select
+        id="visit-reason"
+        name="visitReason"
+        class="mt-4 h-[46px] w-full rounded-md border border-line bg-surface px-4 text-sm text-muted"
+      >
+        <option value="">Reason for visit</option>
+        <option value="dental-implants">Dental implants</option>
+        <option value="wisdom-teeth">Wisdom teeth</option>
+        <option value="tooth-extractions">Tooth extractions</option>
+        <option value="bone-grafting">Bone grafting</option>
+        <option value="oral-pathology">Oral pathology</option>
+        <option value="corrective-jaw-surgery">Corrective jaw surgery</option>
+      </select>
+
+      <label class="sr-only" for="message">How can we help?</label>
+      <textarea
+        id="message"
+        name="message"
+        placeholder="How can we help?"
+        class="mt-4 min-h-[106px] w-full resize-y rounded-md border border-line bg-surface px-4 py-3 text-sm text-foreground placeholder:text-placeholder"
+      ></textarea>
+
+      <button
+        type="submit"
+        class="mt-5 h-14 w-full rounded-md bg-secondary px-6 text-base font-bold text-surface transition-opacity hover:opacity-90"
+      >
+        Send Request
+      </button>
+    </form>
   </div>
 </section>

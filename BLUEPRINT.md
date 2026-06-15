@@ -1,91 +1,155 @@
-# Capital Oral Surgery — Design Blueprint
+# Capital Oral Surgery - Current Design Blueprint
 
-## Overall direction & vibe
+This file is the design source of truth for future homepage edits and new pages. The current direction is the calm, editorial oral-surgery layout now implemented in `src/pages/index.astro`. Do not return to the older generated concept with glass panels, gradient image overlays, overlapping info cards, or the old "Patient Confidence" section.
 
-The design conveys trust, professionalism, and clinical excellence through a sophisticated medical aesthetic. Deep teal (#06333b) paired with vibrant cyan (#00a9c0) creates a modern healthcare brand that balances authority with approachability. The warm off-white background (#f4f1eb) softens the overall palette, making the interface feel welcoming rather than sterile.
+## Overall Direction
 
-## Section-by-section breakdown
+The site should feel specialized, steady, and clinically polished. Use generous whitespace, restrained borders, serif editorial headlines, and calm teal/aqua color blocking. Pages should look like they belong to a focused surgical practice, not a marketing landing page.
+
+Use the live homepage as the primary visual reference:
+
+- Dark midnight header and hero
+- Large serif headlines with cyan emphasis
+- Approved hero photography with remaining future image placeholders preserving their aspect ratios
+- Thin cyan offset borders around image frames
+- White and pale-aqua section bands
+- Minimal cards, subtle shadows, and consistent rounded corners
+- Full-width teal testimonial band
+- Pale-aqua appointment form section
+
+## Canonical Sections
 
 ### Header
-Fixed-height header with deep teal background (#06333b). Logo left-aligned, desktop navigation center-right with hover states transitioning to cyan, and a bordered CTA button on the far right. Mobile uses a details/summary dropdown menu. Logo scales from 56px mobile to 70px desktop. Navigation links are semibold, small (14px), with generous gap spacing. The CTA uses uppercase tracking, a 2px cyan border, and cyan text.
+
+Use `src/components/Header.astro`.
+
+- Background: `bg-midnight`
+- Logo left, desktop nav centered/right, and two CTAs on the far right
+- Nav anchors: `#about`, `#procedures`, `#team`, `#appointment`
+- Mobile/tablet uses the existing `details` menu until the `lg` breakpoint; the opened menu is a full-height panel below the 76px header using `100dvh`
+- CTAs: solid `Request Appointment` button to `#appointment`; bordered `Referring Doctors` button to `/referring-doctors`
 
 ### Hero
-Full-width section with minimum height of 690px. Background image covers the viewport with a gradient overlay transitioning from 75% opacity dark teal at top, 45% mid, to 85% at bottom. Content is vertically and horizontally centered. A glassmorphic card (backdrop-blur, 45% teal background, white/20 border) contains all hero content. Eyebrow text uses extreme letter-spacing (.32em), all-caps, cyan. Headline is serif, 4xl to 7xl responsive, white. Body copy is white with 90% opacity. Two CTAs stacked on mobile, side-by-side on tablet+: one solid cyan background with dark teal text, one bordered ghost button with white text.
 
-### Info cards (below hero)
-Three-column grid on desktop, stacked on mobile, with negative top margin (-2.5rem) to overlap hero. Cards alternate white and cyan backgrounds. Cyan card uses dark teal text. Each card has uppercase tracking label and semibold body content. Consistent padding (1.75rem) and shadow-lg.
+Use `src/components/Hero.astro`.
 
-### Services section
-Centered eyebrow (uppercase, cyan, extreme tracking) and serif headline (4xl to 5xl). Grid of six service cards in 1/2/3 column responsive layout. Each card is white background, subtle shadow, 2rem padding. Serif headlines at 1.5rem, slate-600 body text with increased leading (1.75). Clean, minimal card design with no icons or embellishments.
+- Background: `bg-midnight`
+- Minimum height: `calc(100dvh - 76px)` so the hero fills the visible screen below the header before the next section appears
+- The hero section vertically centers the content grid inside that height
+- Two-column layout on desktop
+- Left column: small uppercase location eyebrow, large serif headline, supporting copy, stats, CTAs
+- Right column: approved office photo at `/images/hero.jpg` inside an `aspect-[4/5]` frame, rounded corners, and a thin cyan border frame
+- Floating review card overlaps the image area on desktop
+- Primary copy:
+  - "Surgical expertise, delivered with calm."
+  - "From wisdom teeth to dental implants and corrective jaw surgery, our three specialists guide you through every step with clarity and care."
 
-### Patient confidence section
-Full-width dark teal background. Two-column asymmetric grid (0.9fr / 1.1fr) on desktop. Left column has eyebrow (cyan) and large serif headline. Right column is a 2×2 grid of bordered boxes (white/15 opacity borders). Each box has cyan bold heading and white/80 body text. Generous padding throughout (5rem vertical).
+### Specialized Care
 
-### CTA section
-Centered container with white background, heavy shadow (shadow-xl). Flexbox layout on desktop with content left, button right. Eyebrow is bold uppercase cyan. Serif headline at 2.25rem. Slate-600 description text. CTA button is dark teal background with white extrabold text.
+Use `src/components/SpecializedCare.astro`.
+
+- Section id: `about`
+- White background
+- Two-column desktop layout
+- Left image uses `/images/specialized-care.jpg` and keeps `aspect-[4/3]`
+- Cyan offset border behind the image area
+- Right text column uses eyebrow, serif heading, paragraphs, and compact check-list rows
+
+### Meet The Team
+
+Use `src/components/MeetTeam.astro`.
+
+- Section id: `team`
+- White background
+- Centered eyebrow and serif heading
+- Three doctor portrait blocks in a desktop grid
+- Portrait frames keep `aspect-[20/19]`
+- Dr. Patrick Lucaci uses `/images/doctor-patrick-lucaci.jpg`
+- Dr. Owen Lonergan uses `/images/doctor-owen-lonergan.jpg`
+- Dr. Emily Eickhoff uses `/images/doctor-emily-eickhoff.jpeg`
+- Use initials placeholders only for doctors whose final headshots have not been supplied
+
+### Procedures
+
+Use `src/components/Procedures.astro`.
+
+- Section id: `procedures`
+- Background: `bg-aqua-soft`
+- Centered eyebrow and heading
+- Six white cards in a 3x2 desktop grid
+- Cards use numbered pale-aqua circular badges
+- Desktop card size should stay close to 413px wide by 180px tall at the 1900px reference viewport
+
+### Testimonial
+
+Use `src/components/Testimonial.astro`.
+
+- Full-width `bg-secondary` band
+- No card or container outline
+- Centered quote mark, serif testimonial, and small uppercase attribution
+- Keep content compact and horizontally centered
+
+### Appointment Form
+
+Use `src/components/CallToAction.astro`.
+
+- Section id: `appointment`
+- Background: `bg-aqua-soft`
+- Two-column desktop layout
+- Left column has request eyebrow, serif heading, short body copy, and address/phone/hours details
+- Right column has a white form panel with first/last name, email, phone, reason select, message, and a full-width teal submit button
+- The form is currently static with `action="#"`; wire it to a backend endpoint only when one is provided
 
 ### Footer
-Dark teal background, four-column grid on desktop. Logo column spans two columns with muted tagline (white/70). Office and Call columns have cyan headings and white/75 text. Modest padding (2.5rem vertical). Small text throughout (0.875rem).
+
+Use `src/components/Footer.astro`.
+
+- Background: `bg-midnight`
+- Keep simple: logo, short tagline, office details, and phone
+- Current phone number: `(785) 272-0444`
+
+## Design Tokens
+
+Tokens live in `src/lib/theme.config.ts` and are mirrored in `src/styles/global.css` through Tailwind v4's `@theme` block. Components should use semantic Tailwind classes instead of raw hex values.
+
+Key colors:
+
+- `midnight`: dark header/hero/footer background
+- `secondary`: active teal for buttons, labels, testimonials, badges, and borders
+- `surface`: white panels and cards
+- `aqua-soft`: pale blue section background
+- `aqua-pale`: pale numbered-badge background
+- `foreground`: main text
+- `muted`: supporting text
+- `line`: form input borders
+- `placeholder`: form placeholder text
 
 ## Typography
 
-**Heading font:** Georgia, Cambria, Times New Roman, serif — used for all major headlines (h1, h2, h3 in service cards). Applied via .serif utility class.
+- Body font: Inter
+- Heading font: Georgia/Cambria/Times New Roman via the `.serif` utility
+- Use serif for major headings, doctor names, procedure card titles, and testimonial copy
+- Eyebrows are small, uppercase, bold, and widely tracked, usually `tracking-[.34em]`
+- Do not use negative letter spacing or viewport-width font sizing
 
-**Body font:** Inter, ui-sans-serif, system-ui, sans-serif — default for all UI text, navigation, buttons, body copy.
+## Layout Rules
 
-**Sizing:** Hero h1 scales 2.25rem (mobile) → 3.75rem (tablet) → 4.5rem (desktop). Section h2 uses 2.25rem → 3rem. Service h3 at 1.5rem. Body text primarily 1rem with some 0.875rem (footer, labels). Leading is generous on body copy (1.75–2).
+- Default horizontal padding: `px-5`
+- Main desktop content width: `max-w-7xl` or the explicit width already used by the section
+- Cards, buttons, inputs, panels, and image frames should use rounded corners with `rounded-md` or `rounded-lg` and subtle shadows where appropriate
+- Do not nest cards inside cards
+- Do not use decorative gradient blobs, bokeh, glassmorphism, or large marketing hero cards
+- Keep fixed-format visual areas stable with `aspect-*` classes until real images are added
+- Preserve a responsive mobile stack for every section
+- Use the global `data-reveal` in-view animation for section content and repeated cards; keep it subtle and respect `prefers-reduced-motion`
 
-**Weight:** Extrabold (800) on CTA buttons, bold (700) on navigation and labels, semibold (600) on info card content, black (900) on eyebrow text.
+## When Adding Future Pages
 
-**Letter-spacing:** Extreme tracking on eyebrow text (.25em to .32em), uppercase labels use tracking-widest. Normal tracking elsewhere.
+Start with the existing `Layout`, `Header`, and `Footer`. Reuse the same colors, type scale, spacing, and section patterns from the homepage. New pages should feel like continuations of this calm surgical website, not separate templates.
 
-## Color palette
+Before shipping future visual changes, run:
 
-- **Primary (dark teal):** #06333b — header, footer, hero overlay, CTA buttons, main brand anchor
-- **Secondary (cyan):** #00a9c0 — primary interactive color, info card background, labels, headings in dark sections
-- **Accent (bright cyan):** #63e8f7 — eyebrow text, lighter accents in dark sections
-- **Accent alt (electric cyan):** #00e0ff — CTA button text in header
-- **Background (warm off-white):** #f4f1eb — body background, creates warmth
-- **Surface (white):** #ffffff — card backgrounds, info cards, service cards, CTA section
-- **Foreground (slate-900):** Default text on light backgrounds (Tailwind slate-900)
-- **Muted text (slate-600):** #475569 — body copy in service cards and CTA section
-- **White overlays:** white/90, white/80, white/75, white/70, white/40, white/30, white/20, white/15 — used extensively for transparency and glassmorphism
+- `npx astro check`
+- `npx astro build`
 
-## Spacing & layout
-
-**Container widths:** 
-- max-w-7xl (80rem / 1280px) — header, services section, patient confidence, footer
-- max-w-6xl (72rem / 1152px) — hero content inner, info cards, CTA section
-- max-w-4xl (56rem / 896px) — hero glassmorphic card
-- max-w-3xl (48rem / 768px) — section intro text
-- max-w-2xl (42rem / 672px) — hero body copy, CTA description
-
-**Horizontal padding:** px-5 default, lg:px-8 on larger breakpoints.
-
-**Vertical rhythm:** Section padding alternates py-20 (5rem) and py-24 (6rem). Hero uses py-20. Cards use p-6, p-7, p-8 based on hierarchy.
-
-**Grid gaps:** gap-6 (services), gap-5 (patient confidence boxes), gap-3 (CTA buttons on mobile), gap-7 (navigation), gap-8 (footer).
-
-**Breakpoints:** md: (768px) for 2-column and navigation reveal, lg: (1024px) for 3-column and larger desktop layouts.
-
-## Unique visual treatments
-
-**Glassmorphism on hero card:** backdrop-blur-md combined with bg-[#06333b]/45 (45% opacity teal), white/20 border, and shadow-2xl creates a frosted-glass floating panel effect.
-
-**Gradient overlay:** Linear gradient from top to bottom with three stops (from-[#06333b]/75 via-[#06333b]/45 to-[#06333b]/85) provides depth and ensures text legibility over hero image.
-
-**Negative margin overlap:** The info cards grid uses -mt-10 to pull up over the hero, creating a layered, elevated feel.
-
-**No border radius:** All elements use sharp, squared corners (rounded-none explicitly set on header CTA). This reinforces a clean, clinical, precise aesthetic.
-
-**Shadow hierarchy:** shadow-sm (services cards), shadow-lg (info cards), shadow-xl (CTA section, mobile menu), shadow-2xl (hero card).
-
-**Bordered boxes:** Patient confidence features use 1px borders at white/15 opacity for subtle structure without visual weight.
-
-**Uppercase eyebrows:** Consistent pattern of small, bold, uppercase, extreme-tracking labels in cyan precede every major section headline.
-
-**Color blocking:** Strategic use of full-width colored sections (dark teal patient confidence) breaks up white space and creates rhythm.
-
-**Hover states:** Navigation links transition to cyan on hover, maintaining interactive affordance without underlining.
-
-**Typography contrast:** Pairing geometric sans-serif (Inter) for UI with classic serif (Georgia) for editorial headlines creates sophisticated hierarchy and readability.
+Also inspect desktop and mobile views in the browser when the change affects layout.
