@@ -1,0 +1,262 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { doctors, type Doctor } from "../../data/doctors";
+
+export function getStaticPaths() {
+  return doctors.map((doctor) => ({
+    params: { slug: doctor.slug },
+    props: { doctor },
+  }));
+}
+
+interface Props {
+  doctor: Doctor;
+}
+
+const { doctor } = Astro.props;
+const title = `${doctor.name} | Capital Oral Surgery & Dental Implants`;
+const description = `Meet ${doctor.name}, ${doctor.role.toLowerCase()} at Capital Oral Surgery & Dental Implants.`;
+const sectionBands = [
+  "bg-surface",
+  "bg-aqua-soft",
+  "bg-background",
+  "bg-surface",
+];
+---
+
+<Layout title={title} description={description} ogImage={doctor.image}>
+  <Header />
+  <main>
+    <section class="bg-midnight text-surface" aria-labelledby="doctor-heading">
+      <div
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-14 px-5 py-14 lg:grid-cols-[minmax(0,610px)_minmax(380px,500px)] lg:px-0"
+      >
+        <div data-reveal>
+          <a
+            href="/#team"
+            class="inline-flex text-sm font-bold text-accent transition-colors hover:text-surface"
+          >
+            ← Meet the Team
+          </a>
+          <p class="mt-10 text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            Meet the Doctor
+          </p>
+          <h1
+            id="doctor-heading"
+            class="serif mt-5 max-w-[680px] text-5xl leading-[0.96] text-surface sm:text-6xl lg:text-[72px]"
+          >
+            {doctor.name}
+          </h1>
+          <p class="mt-5 text-xs font-bold uppercase tracking-[.32em] text-surface/55">
+            {doctor.role}
+          </p>
+          <p class="mt-7 max-w-[590px] text-lg leading-8 text-surface/75 sm:text-xl">
+            {doctor.heroLead}
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="/#appointment"
+              class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90 sm:min-w-[223px]"
+            >
+              Request Appointment
+            </a>
+            <a
+              href="tel:7852720444"
+              class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
+            >
+              Call (785) 272-0444
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="relative mx-auto w-full max-w-[500px] lg:mx-0"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <div
+            class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-secondary"
+            aria-hidden="true"
+          >
+          </div>
+          <div
+            class="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface/5"
+          >
+            <img
+              src={doctor.image}
+              alt={doctor.imageAlt}
+              class="h-full w-full object-cover"
+              style={`object-position: ${doctor.imagePosition};`}
+              width={doctor.imageWidth}
+              height={doctor.imageHeight}
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class={`${sectionBands[0]} py-20 text-foreground lg:py-28`}>
+      <div class="mx-auto max-w-7xl px-5 text-center lg:px-0">
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            {doctor.sections.background.eyebrow}
+          </p>
+          <h2 class="serif mx-auto mt-4 max-w-5xl text-4xl leading-tight sm:text-5xl">
+            {doctor.sections.background.heading}
+          </h2>
+        </div>
+        <div
+          class="mx-auto mt-10 max-w-5xl space-y-6 text-center text-base leading-8 text-muted"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          {doctor.sections.background.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class={`${sectionBands[1]} py-20 text-foreground lg:py-28`}>
+      <div class="mx-auto max-w-7xl px-5 lg:px-0">
+        <div class="max-w-3xl" data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            {doctor.sections.expertise.eyebrow}
+          </p>
+          <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
+            {doctor.sections.expertise.heading}
+          </h2>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+          {
+            doctor.sections.expertise.cards.map((card, index) => (
+              <article
+                class="rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-9"
+                data-reveal
+                style={`--reveal-delay: ${index * 90}ms`}
+              >
+                <h3 class="serif text-2xl font-bold text-foreground">{card.title}</h3>
+                <div class="mt-5 space-y-5 text-base leading-7 text-muted">
+                  {card.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class={`${sectionBands[2]} py-20 text-foreground lg:py-28`}>
+      <div
+        class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[minmax(0,520px)_minmax(0,620px)] lg:items-start lg:gap-20 lg:px-0"
+      >
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            {doctor.sections.affiliations.eyebrow}
+          </p>
+          <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
+            {doctor.sections.affiliations.heading}
+          </h2>
+          {
+            doctor.sections.affiliations.intro && (
+              <p class="mt-6 text-base leading-7 text-muted">
+                {doctor.sections.affiliations.intro}
+              </p>
+            )
+          }
+        </div>
+        <div class="grid gap-6" data-reveal style="--reveal-delay: 120ms">
+          {
+            doctor.sections.affiliations.lists.map((list) => (
+              <article class="rounded-lg bg-surface p-7 shadow-sm sm:p-8">
+                <h3 class="serif text-2xl font-bold text-foreground">{list.title}</h3>
+                <ul class="mt-5 grid gap-3 text-base leading-7 text-muted">
+                  {list.items.map((item) => (
+                    <li class="flex gap-3">
+                      <span class="mt-1 text-secondary" aria-hidden="true">
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class={`${sectionBands[3]} py-20 text-foreground lg:py-28`}>
+      <div
+        class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[minmax(0,520px)_minmax(0,620px)] lg:items-start lg:gap-20 lg:px-0"
+      >
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            {doctor.sections.recognition.eyebrow}
+          </p>
+          <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
+            {doctor.sections.recognition.heading}
+          </h2>
+          {
+            doctor.sections.recognition.intro && (
+              <p class="mt-6 text-base leading-7 text-muted">
+                {doctor.sections.recognition.intro}
+              </p>
+            )
+          }
+        </div>
+        <div class="grid gap-6" data-reveal style="--reveal-delay: 120ms">
+          {
+            doctor.sections.recognition.lists.map((list) => (
+              <article class="rounded-lg border border-line bg-aqua-soft p-7 sm:p-8">
+                <h3 class="serif text-2xl font-bold text-foreground">{list.title}</h3>
+                <ul class="mt-5 grid gap-3 text-base leading-7 text-muted">
+                  {list.items.map((item) => (
+                    <li class="flex gap-3">
+                      <span class="mt-1 text-secondary" aria-hidden="true">
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-aqua-soft px-5 py-20 text-foreground lg:py-24">
+      <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,700px)_auto] lg:items-center lg:px-0">
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            Schedule a Consultation
+          </p>
+          <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
+            Start with care that keeps you informed.
+          </h2>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row lg:justify-end" data-reveal style="--reveal-delay: 120ms">
+          <a
+            href="/#appointment"
+            class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90"
+          >
+            Request Appointment
+          </a>
+          <a
+            href="/#team"
+            class="inline-flex h-14 items-center justify-center rounded-md border border-secondary px-7 font-bold text-foreground transition-colors hover:bg-surface"
+          >
+            Meet All Doctors
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
