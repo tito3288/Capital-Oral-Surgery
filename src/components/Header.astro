@@ -1,10 +1,17 @@
 ---
+import { doctors } from "../data/doctors";
+
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Services", href: "/#procedures" },
   { label: "Doctors", href: "/#team" },
   { label: "Contact", href: "/#appointment" },
 ];
+
+const doctorLinks = doctors.map(({ name, slug }) => ({
+  label: name,
+  href: `/doctors/${slug}/`,
+}));
 ---
 
 <header class="relative z-40 border-b border-surface/5 bg-midnight text-surface">
@@ -23,11 +30,50 @@ const navLinks = [
 
     <nav class="hidden gap-9 text-[15px] font-medium lg:flex" aria-label="Primary">
       {
-        navLinks.map(({ label, href }) => (
-          <a class="transition-colors hover:text-accent" href={href}>
-            {label}
-          </a>
-        ))
+        navLinks.map(({ label, href }) =>
+          label === "Doctors" ? (
+            <div class="group relative">
+              <a
+                class="inline-flex items-center gap-2 transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
+                href={href}
+              >
+                {label}
+                <span
+                  class="text-[10px] leading-none transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+                  aria-hidden="true"
+                >
+                  ▾
+                </span>
+              </a>
+              <div
+                class="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-4 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+              >
+                <div class="rounded-lg border border-surface/10 bg-midnight p-3 shadow-2xl">
+                  <a
+                    href="/#team"
+                    class="block rounded-md px-4 py-3 text-sm font-bold text-surface/70 transition-colors hover:bg-surface/10 hover:text-accent focus:bg-surface/10 focus:text-accent focus:outline-none"
+                  >
+                    Meet All Doctors
+                  </a>
+                  {
+                    doctorLinks.map(({ label, href }) => (
+                      <a
+                        href={href}
+                        class="block rounded-md px-4 py-3 text-sm text-surface transition-colors hover:bg-surface/10 hover:text-accent focus:bg-surface/10 focus:text-accent focus:outline-none"
+                      >
+                        {label}
+                      </a>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          ) : (
+            <a class="transition-colors hover:text-accent" href={href}>
+              {label}
+            </a>
+          ),
+        )
       }
     </nav>
 
@@ -81,11 +127,43 @@ const navLinks = [
         <div class="flex min-h-full flex-col px-5 py-8">
           <nav aria-label="Mobile primary">
             {
-              navLinks.map(({ label, href }) => (
-                <a class="block py-3 text-lg hover:text-accent" href={href}>
-                  {label}
-                </a>
-              ))
+              navLinks.map(({ label, href }) =>
+                label === "Doctors" ? (
+                  <details class="group border-y border-surface/10 py-1">
+                    <summary class="flex cursor-pointer list-none items-center justify-between py-3 text-lg hover:text-accent">
+                      <span>{label}</span>
+                      <span
+                        class="text-sm transition-transform group-open:rotate-180"
+                        aria-hidden="true"
+                      >
+                        ▾
+                      </span>
+                    </summary>
+                    <div class="pb-4 pl-4">
+                      <a
+                        class="block py-2 text-sm font-bold text-surface/70 hover:text-accent"
+                        href={href}
+                      >
+                        Meet All Doctors
+                      </a>
+                      {
+                        doctorLinks.map(({ label, href }) => (
+                          <a
+                            class="block py-2 text-base text-surface hover:text-accent"
+                            href={href}
+                          >
+                            {label}
+                          </a>
+                        ))
+                      }
+                    </div>
+                  </details>
+                ) : (
+                  <a class="block py-3 text-lg hover:text-accent" href={href}>
+                    {label}
+                  </a>
+                ),
+              )
             }
           </nav>
           <div class="mt-8 grid gap-3 sm:grid-cols-2">
