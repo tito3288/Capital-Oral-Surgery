@@ -1,0 +1,359 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Contact Us | Topeka, KS | Capital Oral Surgery";
+const description =
+  "Contact Capital Oral Surgery and Dental Implants in Topeka, KS. Request an appointment, call the office, or find directions to 2445 SW Wanamaker Rd #101.";
+
+const contactMethods = [
+  {
+    label: "Call",
+    title: "(785) 588-4244",
+    href: "tel:7855884244",
+    body: "Speak with our Topeka office team about scheduling, referrals, and visit details.",
+  },
+  {
+    label: "Visit",
+    title: "2445 SW Wanamaker Rd #101",
+    href: "https://www.google.com/maps/search/?api=1&query=2445%20SW%20Wanamaker%20Rd%20%23101%2C%20Topeka%2C%20KS%2066614",
+    body: "Find us near SW Wanamaker Road in Topeka, Kansas 66614.",
+  },
+  {
+    label: "Hours",
+    title: "Mon-Fri, 8am-5pm",
+    href: "#contact-form",
+    body: "Send a request anytime and our team will follow up during office hours.",
+  },
+];
+
+const visitReasons = [
+  "Dental implants",
+  "Wisdom teeth",
+  "Tooth extractions",
+  "Bone grafting",
+  "Oral pathology",
+  "Anesthesia questions",
+  "General question",
+];
+---
+
+<Layout title={title} description={description} ogImage="/images/hero.jpg">
+  <Header />
+  <main>
+    <section class="relative overflow-hidden bg-midnight text-surface" aria-labelledby="contact-heading">
+      <div
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-12 px-5 py-14 lg:grid-cols-[minmax(0,610px)_minmax(380px,500px)] lg:py-16"
+      >
+        <div class="relative z-10" data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            Contact Capital Oral Surgery
+          </p>
+          <h1
+            id="contact-heading"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl lg:text-[76px]"
+          >
+            Let's make your next step clear.
+          </h1>
+          <p class="mt-7 max-w-[600px] text-lg leading-8 text-surface/75 sm:text-xl">
+            There are many ways to communicate with our office. Choose the method
+            most convenient for you, or send a request and our team will help you
+            plan the right visit.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#contact-form"
+              class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90 sm:min-w-[223px]"
+            >
+              Send Request
+            </a>
+            <a
+              href="tel:7855884244"
+              class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
+            >
+              Call (785) 588-4244
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="relative mx-auto w-full max-w-[500px] lg:mx-0"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <div
+            class="absolute -bottom-3 left-3 right-3 top-3 rounded-lg border border-secondary"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface/5">
+            <img
+              src="/images/hero.jpg"
+              alt="Capital Oral Surgery consultation room"
+              class="h-full w-full object-cover object-[33%_50%]"
+              width="5184"
+              height="3456"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+          <div
+            class="relative z-10 mt-5 rounded-lg bg-surface p-5 text-foreground shadow-xl sm:w-[260px] lg:absolute lg:-left-8 lg:bottom-[-3.25rem] lg:mt-0"
+          >
+            <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+              Topeka Office
+            </p>
+            <p class="mt-3 text-sm leading-6 text-muted">
+              2445 SW Wanamaker Rd #101<br />
+              Topeka, KS 66614
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background px-5 py-16 text-foreground md:py-20">
+      <div class="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
+        {
+          contactMethods.map(({ label, title, href, body }, index) => (
+            <a
+              href={href}
+              target={label === "Visit" ? "_blank" : undefined}
+              rel={label === "Visit" ? "noopener noreferrer" : undefined}
+              class="group rounded-lg border border-line bg-surface p-7 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-secondary hover:shadow-lg focus:outline-none focus-visible:border-secondary focus-visible:ring-2 focus-visible:ring-secondary/30"
+              data-reveal
+              style={`--reveal-delay: ${index * 80}ms`}
+            >
+              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                {label}
+              </p>
+              <h2 class="serif mt-4 text-2xl font-bold leading-tight text-foreground">
+                {title}
+              </h2>
+              <p class="mt-4 text-sm leading-6 text-muted">{body}</p>
+              <span class="mt-6 inline-flex text-sm font-bold text-secondary transition-colors group-hover:text-foreground">
+                {label === "Visit" ? "Get directions" : label === "Call" ? "Call office" : "Start form"}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="bg-aqua-soft px-5 py-20 text-foreground md:py-24" aria-labelledby="form-heading">
+      <div
+        class="mx-auto grid max-w-[1160px] gap-12 lg:grid-cols-[minmax(0,440px)_minmax(0,620px)] lg:gap-16"
+      >
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            Request Appointment
+          </p>
+          <h2 id="form-heading" class="serif mt-4 text-4xl leading-tight sm:text-5xl">
+            Tell us how we can help.
+          </h2>
+          <p class="mt-6 text-base leading-7 text-muted">
+            Share a few details and our team will reach out to confirm next steps.
+            Please avoid sending sensitive medical information through this form.
+          </p>
+
+          <div class="mt-9 rounded-lg border border-secondary/20 bg-surface p-6 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+              Quick details
+            </p>
+            <dl class="mt-5 grid gap-4 text-sm leading-6 text-muted">
+              <div>
+                <dt class="font-bold text-foreground">Mailing address</dt>
+                <dd>2445 SW Wanamaker Rd #101, Topeka, KS 66614</dd>
+              </div>
+              <div>
+                <dt class="font-bold text-foreground">Telephone</dt>
+                <dd><a href="tel:7855884244" class="hover:text-secondary">(785) 588-4244</a></dd>
+              </div>
+              <div>
+                <dt class="font-bold text-foreground">Serving</dt>
+                <dd>Topeka, Lawrence, Manhattan, Emporia, Salina, Kansas City, and nearby communities.</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <form
+          id="contact-form"
+          class="rounded-lg border border-line bg-surface p-6 shadow-xl sm:p-8"
+          action="#"
+          method="post"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-sm font-bold text-foreground" for="first-name">
+                First name
+              </label>
+              <input
+                id="first-name"
+                name="firstName"
+                type="text"
+                autocomplete="given-name"
+                required
+                class="mt-2 h-12 w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+              />
+            </div>
+
+            <div>
+              <label class="text-sm font-bold text-foreground" for="last-name">
+                Last name
+              </label>
+              <input
+                id="last-name"
+                name="lastName"
+                type="text"
+                autocomplete="family-name"
+                required
+                class="mt-2 h-12 w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+              />
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-sm font-bold text-foreground" for="email">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="mt-2 h-12 w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+              />
+            </div>
+
+            <div>
+              <label class="text-sm font-bold text-foreground" for="phone">
+                Phone
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                required
+                class="mt-2 h-12 w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+              />
+            </div>
+          </div>
+
+          <div class="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="text-sm font-bold text-foreground" for="visit-reason">
+                Reason for visit
+              </label>
+              <select
+                id="visit-reason"
+                name="visitReason"
+                required
+                class="mt-2 h-12 w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+              >
+                <option value="">Select a reason</option>
+                {visitReasons.map((reason) => <option value={reason}>{reason}</option>)}
+              </select>
+            </div>
+
+            <div>
+              <label class="text-sm font-bold text-foreground" for="preferred-contact">
+                Preferred contact
+              </label>
+              <select
+                id="preferred-contact"
+                name="preferredContact"
+                class="mt-2 h-12 w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+              >
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+                <option value="either">Either is fine</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="text-sm font-bold text-foreground" for="timeframe">
+              Preferred timeframe
+            </label>
+            <input
+              id="timeframe"
+              name="timeframe"
+              type="text"
+              placeholder="Example: mornings, next week, as soon as possible"
+              class="mt-2 h-12 w-full rounded-md border border-line bg-surface px-4 text-sm text-foreground placeholder:text-placeholder focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+            />
+          </div>
+
+          <div class="mt-4">
+            <label class="text-sm font-bold text-foreground" for="message">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="How can we help?"
+              class="mt-2 min-h-[132px] w-full resize-y rounded-md border border-line bg-surface px-4 py-3 text-sm text-foreground placeholder:text-placeholder focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="mt-6 h-14 w-full rounded-md bg-secondary px-6 text-base font-bold text-surface transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40 focus-visible:ring-offset-2"
+          >
+            Send Request
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section class="bg-surface px-5 py-16 text-foreground md:py-20" aria-labelledby="directions-heading">
+      <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,440px)_minmax(0,1fr)] lg:items-center">
+        <div data-reveal>
+          <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            Online Map & Driving Directions
+          </p>
+          <h2 id="directions-heading" class="serif mt-4 text-4xl leading-tight sm:text-5xl">
+            Plan your visit to our Topeka office.
+          </h2>
+          <p class="mt-6 text-base leading-7 text-muted">
+            If this is your first time visiting, use the map link for directions,
+            travel time, and distance. For any additional information, call us at
+            <a href="tel:7855884244" class="font-bold text-foreground hover:text-secondary">(785) 588-4244</a>.
+          </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=2445%20SW%20Wanamaker%20Rd%20%23101%2C%20Topeka%2C%20KS%2066614"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-flex h-14 items-center justify-center rounded-md bg-midnight px-7 font-bold text-surface transition-colors hover:bg-foreground"
+          >
+            Open Directions
+          </a>
+        </div>
+
+        <div
+          class="overflow-hidden rounded-lg border border-line bg-background shadow-sm"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3099.721180211223!2d-95.76551622335283!3d39.02167337169778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87befd2776a2cc61%3A0xb03ac6f0e82600dc!2sCapital%20Oral%20Surgery%20and%20Dental%20Implants!5e0!3m2!1sen!2sus!4v1782234458445!5m2!1sen!2sus"
+            title="Map to Capital Oral Surgery and Dental Implants"
+            class="h-[360px] w-full border-0 md:h-[450px]"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
