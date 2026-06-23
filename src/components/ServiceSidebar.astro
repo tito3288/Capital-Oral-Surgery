@@ -1,0 +1,78 @@
+---
+import { serviceGroups } from "../data/services";
+
+interface Props {
+  groupLabel: string;
+  currentHref: string;
+}
+
+const { groupLabel, currentHref } = Astro.props;
+const serviceGroup = serviceGroups.find((group) => group.label === groupLabel);
+---
+
+{
+  serviceGroup && (
+    <aside
+      class="self-start lg:sticky lg:top-8 lg:w-[300px] lg:justify-self-end"
+      aria-label={`${groupLabel} services`}
+    >
+      <div class="rounded-lg border border-line bg-surface p-5 shadow-sm lg:max-h-[calc(100dvh-4rem)] lg:overflow-y-auto">
+        <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+          {serviceGroup.label}
+        </p>
+        <nav class="mt-5 grid gap-1">
+          {serviceGroup.items.map(({ label, href, items }) => {
+            const isCurrent =
+              href === currentHref || items?.some((item) => item.href === currentHref);
+
+            return (
+              <div>
+                <a
+                  href={href}
+                  aria-current={href === currentHref ? "page" : undefined}
+                  class={`group flex items-center justify-between rounded-md px-4 py-3 text-sm leading-5 transition-colors ${
+                    isCurrent
+                      ? "bg-midnight font-bold text-surface"
+                      : "text-muted hover:bg-aqua-soft hover:text-foreground"
+                  }`}
+                >
+                  <span>{label}</span>
+                  <span
+                    class={`ml-2 text-xs transition-transform group-hover:translate-x-1 ${
+                      isCurrent ? "text-accent" : "text-secondary"
+                    }`}
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </a>
+                {items && (
+                  <div class="mt-1 grid gap-1 pl-3">
+                    {items.map(({ label, href: childHref }) => {
+                      const childIsCurrent =
+                        childHref === currentHref && childHref !== href;
+
+                      return (
+                        <a
+                          href={childHref}
+                          aria-current={childIsCurrent ? "page" : undefined}
+                          class={`rounded-md px-4 py-2 text-sm leading-5 transition-colors ${
+                            childIsCurrent
+                              ? "bg-aqua-soft font-bold text-foreground"
+                              : "text-muted hover:bg-aqua-soft hover:text-foreground"
+                          }`}
+                        >
+                          {label}
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </nav>
+      </div>
+    </aside>
+  )
+}

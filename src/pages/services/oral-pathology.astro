@@ -1,0 +1,302 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ServiceSidebar from "../../components/ServiceSidebar.astro";
+
+const title = "Oral Pathology | Topeka, KS | Capital Oral Surgery";
+const description =
+  "Learn about oral pathology warning signs, oral cancer screening, biopsies for abnormal tissue, and when to contact an oral surgeon.";
+
+const currentHref = "/services/oral-pathology/";
+
+const warningSigns = [
+  {
+    number: "01",
+    title: "Red or white patches",
+    body: "Reddish patches, called erythroplasia, or whitish patches, called leukoplakia, can be early warning signs inside the mouth.",
+  },
+  {
+    number: "02",
+    title: "A sore that does not heal",
+    body: "A sore that fails to heal, bleeds easily, or continues to return should be evaluated rather than watched indefinitely.",
+  },
+  {
+    number: "03",
+    title: "Lumps or thickened tissue",
+    body: "A lump, thickening, or abnormal texture in the lining of the mouth, face, or neck may need closer examination.",
+  },
+  {
+    number: "04",
+    title: "Throat or swallowing changes",
+    body: "Chronic sore throat, hoarseness, or difficulty chewing or swallowing can also be related to an oral pathology concern.",
+  },
+];
+
+const selfCheckAreas = [
+  "Lips",
+  "Cheeks",
+  "Palate",
+  "Gum tissue",
+  "Tongue",
+  "Face and neck",
+];
+---
+
+<Layout title={title} description={description} ogImage="/images/specialized-care.jpg">
+  <Header />
+  <main>
+    <section class="bg-midnight text-surface" aria-labelledby="service-heading">
+      <div
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-14 px-5 py-14 lg:grid-cols-[minmax(0,610px)_minmax(380px,500px)] lg:px-0"
+      >
+        <div data-reveal>
+          <a
+            href="/#procedures"
+            class="inline-flex text-sm font-bold text-accent transition-colors hover:text-surface"
+          >
+            ← Services
+          </a>
+          <p class="mt-10 text-xs font-bold uppercase tracking-[.34em] text-secondary">
+            Procedures
+          </p>
+          <h1
+            id="service-heading"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl lg:text-[72px]"
+          >
+            Oral pathology.
+          </h1>
+          <p class="mt-7 max-w-[590px] text-lg leading-8 text-surface/75 sm:text-xl">
+            Changes in the lining of the mouth can be warning signs of infection,
+            inflammation, benign growths, or oral cancer. Early evaluation helps clarify
+            what is happening and what treatment may be needed.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="/#appointment"
+              class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90 sm:min-w-[223px]"
+            >
+              Request Appointment
+            </a>
+            <a
+              href="tel:7852720444"
+              class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
+            >
+              Call (785) 272-0444
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="relative mx-auto w-full max-w-[500px] lg:mx-0"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <div
+            class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-secondary"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface/5">
+            <img
+              src="/images/specialized-care.jpg"
+              alt="Dental imaging equipment used in oral pathology evaluation"
+              class="h-full w-full object-cover object-center"
+              width="5184"
+              height="3456"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-20 text-foreground lg:py-24">
+      <div
+        class="mx-auto grid max-w-[1600px] gap-10 px-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,920px)_minmax(0,1fr)] lg:items-start lg:gap-12"
+      >
+        <ServiceSidebar groupLabel="Procedures" currentHref={currentHref} />
+
+        <div class="grid gap-20 lg:col-start-2 lg:gap-24">
+          <section class="pb-2 lg:pb-0" aria-labelledby="overview-heading">
+            <div class="max-w-5xl" data-reveal>
+              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+                Tissue Changes
+              </p>
+              <h2
+                id="overview-heading"
+                class="serif mt-4 text-4xl leading-tight sm:text-5xl"
+              >
+                Healthy mouth tissue is usually smooth and coral pink.
+              </h2>
+              <div class="mt-7 space-y-6 text-base leading-8 text-muted">
+                <p>
+                  The inside of the mouth is lined with mucosa, a special type of skin
+                  that is normally smooth and coral pink. Any change in color, texture,
+                  thickness, or healing pattern can signal a pathological process.
+                </p>
+                <p>
+                  The most serious concern is oral cancer, but not every change is
+                  cancerous. An exam and, when appropriate, a biopsy can help identify
+                  the cause and guide treatment.
+                </p>
+                <p>
+                  Pain does not always occur with oral pathology. Suspicious lumps,
+                  sores, or tissue changes should be evaluated even if they are not
+                  painful.
+                </p>
+              </div>
+
+              <div class="mt-8 rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-8">
+                <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                  Do not ignore changes
+                </p>
+                <p class="mt-3 text-base leading-7 text-muted">
+                  Your mouth is one of the body's important warning systems. Contact us
+                  if a sore, lump, patch, or unexplained pain does not resolve.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="pt-4 lg:pt-2" aria-labelledby="signs-heading">
+            <div class="max-w-3xl" data-reveal>
+              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+                Warning Signs
+              </p>
+              <h2
+                id="signs-heading"
+                class="serif mt-4 text-4xl leading-tight sm:text-5xl"
+              >
+                Early evaluation matters when something looks or feels different.
+              </h2>
+              <p class="mt-6 text-base leading-7 text-muted">
+                These changes may appear on the lips, cheeks, palate, gum tissue around
+                the teeth, tongue, face, or neck.
+              </p>
+            </div>
+
+            <div class="mt-12 grid gap-6 lg:grid-cols-2 lg:gap-7">
+              {
+                warningSigns.map(({ number, title, body }, index) => (
+                  <article
+                    class="rounded-lg border border-line bg-surface p-8 shadow-sm sm:p-9 lg:p-10"
+                    data-reveal
+                    style={`--reveal-delay: ${(index % 2) * 80}ms`}
+                  >
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-aqua-pale text-sm font-bold text-secondary">
+                      {number}
+                    </div>
+                    <h3 class="serif mt-6 text-2xl font-bold text-foreground">
+                      {title}
+                    </h3>
+                    <p class="mt-4 text-base leading-7 text-muted">{body}</p>
+                  </article>
+                ))
+              }
+            </div>
+          </section>
+
+          <section
+            class="grid gap-10 rounded-lg bg-aqua-soft p-8 sm:p-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center lg:p-12"
+            aria-labelledby="self-exam-heading"
+            data-reveal
+          >
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+                Monthly Self-Exam
+              </p>
+              <h2
+                id="self-exam-heading"
+                class="serif mt-4 text-4xl leading-tight sm:text-5xl"
+              >
+                A regular self-check can help you notice changes sooner.
+              </h2>
+              <p class="mt-6 text-base leading-7 text-muted">
+                We recommend checking your mouth once a month for new patches, sores,
+                lumps, thickened tissue, or changes that do not heal normally.
+              </p>
+            </div>
+            <div class="grid gap-3 text-sm font-bold text-foreground">
+              {selfCheckAreas.map((item) => (
+                <p class="rounded-md bg-surface px-4 py-3">{item}</p>
+              ))}
+            </div>
+          </section>
+
+          <section class="grid gap-8 md:grid-cols-2">
+            <article class="rounded-lg border border-line bg-surface p-8 shadow-sm sm:p-9 lg:p-10" data-reveal>
+              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                Oral Biopsy
+              </p>
+              <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
+                A biopsy can identify abnormal tissue.
+              </h2>
+              <p class="mt-6 text-base leading-7 text-muted">
+                Oral biopsies are performed for lesions, lumps, or other abnormal tissue
+                to help determine what the tissue is and which treatment is appropriate.
+              </p>
+            </article>
+
+            <article
+              class="rounded-lg border border-line bg-surface p-8 shadow-sm sm:p-9 lg:p-10"
+              data-reveal
+              style="--reveal-delay: 120ms"
+            >
+              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                Unexplained Pain
+              </p>
+              <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
+                Pain without an obvious cause deserves attention.
+              </h2>
+              <p class="mt-6 text-base leading-7 text-muted">
+                Oral cancer is not always painful, but unexplained facial or oral pain
+                can still be a reason to schedule an evaluation.
+              </p>
+            </article>
+          </section>
+
+          <section class="rounded-lg bg-midnight px-8 py-12 text-surface sm:px-10 lg:px-12 lg:py-14">
+            <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+              <div data-reveal>
+                <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
+                  Questions or Concerns
+                </p>
+                <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
+                  Let us evaluate suspicious tissue changes.
+                </h2>
+                <p class="mt-5 max-w-[660px] text-base leading-7 text-surface/75">
+                  If you notice a sore, lump, patch, or unexplained pain, our team can
+                  examine the area and explain the next step.
+                </p>
+              </div>
+              <div
+                class="flex flex-col gap-3 sm:flex-row lg:flex-col"
+                data-reveal
+                style="--reveal-delay: 120ms"
+              >
+                <a
+                  href="/#appointment"
+                  class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90"
+                >
+                  Request Appointment
+                </a>
+                <a
+                  href="tel:7852720444"
+                  class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10"
+                >
+                  Call (785) 272-0444
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="hidden lg:block" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
