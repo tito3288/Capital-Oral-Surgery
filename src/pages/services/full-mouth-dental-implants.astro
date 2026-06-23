@@ -14,22 +14,22 @@ const currentHref = "/services/full-mouth-dental-implants/";
 const lowerJawOptions = [
   {
     number: "01",
-    title: "Ball Attachment Denture",
+    title: "Ball attachment denture",
     body: "Two implants are placed in the lower jaw, and a denture is made to snap onto them. This can improve stability while chewing, though the denture can still move and may need periodic adjustments.",
   },
   {
     number: "02",
-    title: "Bar Attachment Denture",
+    title: "Bar attachment denture",
     body: "Four to six implants are placed, then connected with a custom support bar after healing. The denture snaps firmly onto the bar, allowing very little movement while still being removable for cleaning.",
   },
   {
     number: "03",
-    title: "Screw-Retained Denture",
+    title: "Screw-retained denture",
     body: "Five or more implants support a permanent denture that is secured to posts or a bar. It does not touch the gum tissue and is removed only during maintenance visits.",
   },
   {
     number: "04",
-    title: "Individual Implants",
+    title: "Individual implants",
     body: "All missing teeth can be replaced individually so they most closely resemble natural teeth. This usually requires eight or more implants and may depend on jawbone size and shape.",
   },
 ];
@@ -47,7 +47,7 @@ const upperJawOptions = [
   <main>
     <section class="bg-midnight text-surface" aria-labelledby="service-heading">
       <div
-        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-14 px-5 py-14 lg:grid-cols-[minmax(0,610px)_minmax(380px,500px)] lg:px-0"
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
       >
         <div data-reveal>
           <a
@@ -56,12 +56,12 @@ const upperJawOptions = [
           >
             ← Services
           </a>
-          <p class="mt-10 text-xs font-bold uppercase tracking-[.34em] text-secondary">
-            Dental Implants
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
+            Dental implants
           </p>
           <h1
             id="service-heading"
-            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl lg:text-[72px]"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
           >
             Full mouth dental implants.
           </h1>
@@ -114,15 +114,15 @@ const upperJawOptions = [
 
     <section class="bg-background py-20 text-foreground lg:py-24">
       <div
-        class="mx-auto grid max-w-[1600px] gap-10 px-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,920px)_minmax(0,1fr)] lg:items-start lg:gap-12"
+        class="mx-auto grid max-w-[920px] gap-10 px-5 min-[1400px]:max-w-[1400px] min-[1400px]:grid-cols-[220px_minmax(0,840px)_220px] min-[1400px]:items-start min-[1400px]:gap-8 min-[1700px]:max-w-[1640px] min-[1700px]:grid-cols-[280px_minmax(0,920px)_280px] min-[1700px]:gap-12"
       >
-        <ServiceSidebar groupLabel="Dental Implants" currentHref={currentHref} />
+        <ServiceSidebar groupLabel="Dental implants" currentHref={currentHref} />
 
-        <div class="grid gap-20 lg:col-start-2 lg:gap-24">
+        <div class="grid gap-20 lg:gap-24 min-[1400px]:col-start-2">
           <section class="pb-2 lg:pb-0" aria-labelledby="full-mouth-heading">
             <div class="max-w-5xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Full-Arch Replacement
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Full-arch replacement
               </p>
               <h2
                 id="full-mouth-heading"
@@ -151,7 +151,7 @@ const upperJawOptions = [
               </div>
 
               <div class="mt-8 rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-8">
-                <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                <p class="text-xs font-bold tracking-[.28em] text-secondary">
                   Removable vs fixed
                 </p>
                 <p class="mt-3 text-base leading-7 text-muted">
@@ -165,8 +165,8 @@ const upperJawOptions = [
 
           <section class="pt-4 lg:pt-2" aria-labelledby="lower-options-heading">
             <div class="max-w-3xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Lower Jaw Options
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Lower jaw options
               </p>
               <h2
                 id="lower-options-heading"
@@ -208,8 +208,8 @@ const upperJawOptions = [
             data-reveal
           >
             <div>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Upper Jaw Options
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Upper jaw options
               </p>
               <h2
                 id="upper-options-heading"
@@ -232,8 +232,8 @@ const upperJawOptions = [
 
           <section class="grid gap-8 md:grid-cols-2">
             <article class="rounded-lg border border-line bg-surface p-8 shadow-sm sm:p-9 lg:p-10" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
-                Implant-Retained Upper Denture
+              <p class="text-xs font-bold tracking-[.28em] text-secondary">
+                Implant-retained upper denture
               </p>
               <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
                 More natural taste and comfort may be possible.
@@ -250,8 +250,8 @@ const upperJawOptions = [
               data-reveal
               style="--reveal-delay: 120ms"
             >
-              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
-                Individual Upper Implants
+              <p class="text-xs font-bold tracking-[.28em] text-secondary">
+                Individual upper implants
               </p>
               <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
                 Fixed teeth can closely resemble natural teeth.
@@ -267,8 +267,8 @@ const upperJawOptions = [
           <section class="rounded-lg bg-midnight px-8 py-12 text-surface sm:px-10 lg:px-12 lg:py-14">
             <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
               <div data-reveal>
-                <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                  Reclaim Confidence
+                <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                  Reclaim confidence
                 </p>
                 <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
                   Find the right full-mouth plan.
@@ -301,7 +301,7 @@ const upperJawOptions = [
           </section>
         </div>
 
-        <div class="hidden lg:block" aria-hidden="true"></div>
+        <div class="hidden min-[1400px]:block" aria-hidden="true"></div>
       </div>
     </section>
   </main>

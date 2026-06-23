@@ -19,12 +19,12 @@ const placementSteps = [
   },
   {
     number: "02",
-    title: "Numbing and Comfort",
+    title: "Numbing and comfort",
     body: "A local anesthetic is used to numb the area where the implant will be placed. The goal is a calm, precise visit with your comfort clearly planned before treatment begins.",
   },
   {
     number: "03",
-    title: "Implant Placement",
+    title: "Implant placement",
     body: "Once you are comfortable, the surgeon makes a small incision in the gum tissue, prepares the space with specialized instruments, and gently places the titanium implant into the bone.",
   },
   {
@@ -48,7 +48,7 @@ const implantSequence = [
   <main>
     <section class="bg-midnight text-surface" aria-labelledby="service-heading">
       <div
-        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-14 px-5 py-14 lg:grid-cols-[minmax(0,610px)_minmax(380px,500px)] lg:px-0"
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
       >
         <div data-reveal>
           <a
@@ -57,12 +57,12 @@ const implantSequence = [
           >
             ← Services
           </a>
-          <p class="mt-10 text-xs font-bold uppercase tracking-[.34em] text-secondary">
-            Dental Implants
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
+            Dental implants
           </p>
           <h1
             id="service-heading"
-            class="serif mt-5 max-w-[720px] text-5xl leading-[0.96] text-surface sm:text-6xl lg:text-[72px]"
+            class="serif mt-5 max-w-[720px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
           >
             Single tooth implant.
           </h1>
@@ -116,15 +116,15 @@ const implantSequence = [
 
     <section class="bg-background py-20 text-foreground lg:py-24">
       <div
-        class="mx-auto grid max-w-[1600px] gap-10 px-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,920px)_minmax(0,1fr)] lg:items-start lg:gap-12"
+        class="mx-auto grid max-w-[920px] gap-10 px-5 min-[1400px]:max-w-[1400px] min-[1400px]:grid-cols-[220px_minmax(0,840px)_220px] min-[1400px]:items-start min-[1400px]:gap-8 min-[1700px]:max-w-[1640px] min-[1700px]:grid-cols-[280px_minmax(0,920px)_280px] min-[1700px]:gap-12"
       >
-        <ServiceSidebar groupLabel="Dental Implants" currentHref={currentHref} />
+        <ServiceSidebar groupLabel="Dental implants" currentHref={currentHref} />
 
-        <div class="grid gap-20 lg:col-start-2 lg:gap-24">
+        <div class="grid gap-20 lg:gap-24 min-[1400px]:col-start-2">
           <section class="pb-2 lg:pb-0" aria-labelledby="placement-heading">
             <div class="max-w-5xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Implant Placement
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Implant placement
               </p>
               <h2
                 id="placement-heading"
@@ -153,7 +153,7 @@ const implantSequence = [
               </div>
 
               <div class="mt-8 rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-8">
-                <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                <p class="text-xs font-bold tracking-[.28em] text-secondary">
                   Appointment timing
                 </p>
                 <p class="mt-3 text-base leading-7 text-muted">
@@ -167,8 +167,8 @@ const implantSequence = [
 
           <section class="pt-4 lg:pt-2" aria-labelledby="process-heading">
             <div class="max-w-3xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                What to Expect
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                What to expect
               </p>
               <h2
                 id="process-heading"
@@ -210,8 +210,8 @@ const implantSequence = [
             data-reveal
           >
             <div>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Healing and Follow-Up
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Healing and follow-up
               </p>
               <h2
                 id="healing-heading"
@@ -235,8 +235,8 @@ const implantSequence = [
 
           <section class="grid gap-8 md:grid-cols-2">
             <article class="rounded-lg border border-line bg-surface p-8 shadow-sm sm:p-9 lg:p-10" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
-                Placement Timing
+              <p class="text-xs font-bold tracking-[.28em] text-secondary">
+                Placement timing
               </p>
               <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
                 When are implants placed?
@@ -254,8 +254,8 @@ const implantSequence = [
               data-reveal
               style="--reveal-delay: 120ms"
             >
-              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
-                Implant Count
+              <p class="text-xs font-bold tracking-[.28em] text-secondary">
+                Implant count
               </p>
               <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
                 How many implants do I need?
@@ -271,8 +271,8 @@ const implantSequence = [
           <section class="rounded-lg bg-midnight px-8 py-12 text-surface sm:px-10 lg:px-12 lg:py-14">
             <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
               <div data-reveal>
-                <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                  Reclaim Confidence
+                <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                  Reclaim confidence
                 </p>
                 <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
                   Start with a consultation.
@@ -304,7 +304,7 @@ const implantSequence = [
           </section>
         </div>
 
-        <div class="hidden lg:block" aria-hidden="true"></div>
+        <div class="hidden min-[1400px]:block" aria-hidden="true"></div>
       </div>
     </section>
   </main>

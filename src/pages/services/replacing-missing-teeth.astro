@@ -14,7 +14,7 @@ const currentHref = "/services/replacing-missing-teeth/";
 const replacementOptions = [
   {
     number: "01",
-    title: "Fixed Bridge",
+    title: "Fixed bridge",
     body: "A fixed bridge is a connected set of replacement teeth. It is cemented into position using the teeth beside the empty space for support, which usually means those neighboring teeth must be reshaped before the bridge is attached.",
   },
   {
@@ -24,7 +24,7 @@ const replacementOptions = [
   },
   {
     number: "03",
-    title: "Metal Partial",
+    title: "Metal partial",
     body: "A removable partial denture is made with metal and plastic and held in place with wire clips. It can be removed and reinserted by the patient when needed.",
   },
   {
@@ -34,7 +34,7 @@ const replacementOptions = [
   },
   {
     number: "05",
-    title: "Dental Implants",
+    title: "Dental implants",
     body: "Dental implants are a comfortable, long-lasting solution. They form a strong foundation for replacement teeth, help keep the jaw healthy, and can support individual crowns or secure specialized dentures.",
   },
 ];
@@ -45,7 +45,7 @@ const replacementOptions = [
   <main>
     <section class="bg-midnight text-surface" aria-labelledby="service-heading">
       <div
-        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-14 px-5 py-14 lg:grid-cols-[minmax(0,610px)_minmax(380px,500px)] lg:px-0"
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
       >
         <div data-reveal>
           <a
@@ -54,12 +54,12 @@ const replacementOptions = [
           >
             ← Services
           </a>
-          <p class="mt-10 text-xs font-bold uppercase tracking-[.34em] text-secondary">
-            Dental Implants
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
+            Dental implants
           </p>
           <h1
             id="service-heading"
-            class="serif mt-5 max-w-[720px] text-5xl leading-[0.96] text-surface sm:text-6xl lg:text-[72px]"
+            class="serif mt-5 max-w-[720px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
           >
             Replacing missing teeth.
           </h1>
@@ -112,18 +112,18 @@ const replacementOptions = [
 
     <section class="bg-background py-20 text-foreground lg:py-24">
       <div
-        class="mx-auto grid max-w-[1600px] gap-10 px-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,920px)_minmax(0,1fr)] lg:items-start lg:gap-12"
+        class="mx-auto grid max-w-[920px] gap-10 px-5 min-[1400px]:max-w-[1400px] min-[1400px]:grid-cols-[220px_minmax(0,840px)_220px] min-[1400px]:items-start min-[1400px]:gap-8 min-[1700px]:max-w-[1640px] min-[1700px]:grid-cols-[280px_minmax(0,920px)_280px] min-[1700px]:gap-12"
       >
-        <ServiceSidebar groupLabel="Dental Implants" currentHref={currentHref} />
+        <ServiceSidebar groupLabel="Dental implants" currentHref={currentHref} />
 
-        <div class="grid gap-20 lg:col-start-2 lg:gap-24">
+        <div class="grid gap-20 lg:gap-24 min-[1400px]:col-start-2">
           <section
             class="pb-2 lg:pb-0"
             aria-labelledby="missing-teeth-matter-heading"
           >
             <div class="max-w-5xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Why Replacement Matters
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Why replacement matters
               </p>
               <h2
                 id="missing-teeth-matter-heading"
@@ -151,7 +151,7 @@ const replacementOptions = [
               </div>
 
               <div class="mt-8 rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-8">
-                <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                <p class="text-xs font-bold tracking-[.28em] text-secondary">
                   Why timing matters
                 </p>
                 <p class="mt-3 text-base leading-7 text-muted">
@@ -165,8 +165,8 @@ const replacementOptions = [
 
           <section class="pt-4 lg:pt-2" aria-labelledby="options-heading">
             <div class="max-w-3xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Tooth Replacement Options
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Tooth replacement options
               </p>
               <h2
                 id="options-heading"
@@ -187,7 +187,7 @@ const replacementOptions = [
                 replacementOptions.map(({ number, title, body }, index) => (
                   <article
                     class={`rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-8 ${
-                      title === "Dental Implants" ? "lg:col-span-2" : ""
+                      title === "Dental implants" ? "lg:col-span-2" : ""
                     }`}
                     data-reveal
                     style={`--reveal-delay: ${(index % 2) * 80}ms`}
@@ -211,8 +211,8 @@ const replacementOptions = [
             data-reveal
           >
             <div>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Why Implants Stand Apart
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Why implants stand apart
               </p>
               <h2
                 id="implants-heading"
@@ -238,8 +238,8 @@ const replacementOptions = [
           <section class="mt-0 rounded-lg bg-midnight px-8 py-12 text-surface sm:px-10 lg:px-12 lg:py-14">
             <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
               <div data-reveal>
-                <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                  Reclaim Confidence
+                <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                  Reclaim confidence
                 </p>
                 <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
                   Start with a consultation.
@@ -271,7 +271,7 @@ const replacementOptions = [
           </section>
         </div>
 
-        <div class="hidden lg:block" aria-hidden="true"></div>
+        <div class="hidden min-[1400px]:block" aria-hidden="true"></div>
       </div>
     </section>
   </main>

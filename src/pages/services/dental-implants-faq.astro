@@ -19,7 +19,7 @@ const faqCards = [
   },
   {
     number: "02",
-    title: "Will I miss work?",
+    title: "Will i miss work?",
     body: "Some patients return to work the next day after a single tooth implant. Patients receiving multiple implants may rest at home for two or three days before returning to normal activity.",
   },
   {
@@ -29,7 +29,7 @@ const faqCards = [
   },
   {
     number: "04",
-    title: "Will I need bone grafts?",
+    title: "Will i need bone grafts?",
     body: "It depends on your jawbone health. If there is not enough width, height, or density to support implants, bone grafting may be recommended to strengthen and reshape the jawbone.",
   },
 ];
@@ -48,7 +48,7 @@ const quickAnswers = [
   <main>
     <section class="bg-midnight text-surface" aria-labelledby="service-heading">
       <div
-        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-14 px-5 py-14 lg:grid-cols-[minmax(0,610px)_minmax(380px,500px)] lg:px-0"
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
       >
         <div data-reveal>
           <a
@@ -57,12 +57,12 @@ const quickAnswers = [
           >
             ← Services
           </a>
-          <p class="mt-10 text-xs font-bold uppercase tracking-[.34em] text-secondary">
-            Dental Implants
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
+            Dental implants
           </p>
           <h1
             id="service-heading"
-            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl lg:text-[72px]"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
           >
             Dental implants FAQ.
           </h1>
@@ -115,15 +115,15 @@ const quickAnswers = [
 
     <section class="bg-background py-20 text-foreground lg:py-24">
       <div
-        class="mx-auto grid max-w-[1600px] gap-10 px-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,920px)_minmax(0,1fr)] lg:items-start lg:gap-12"
+        class="mx-auto grid max-w-[920px] gap-10 px-5 min-[1400px]:max-w-[1400px] min-[1400px]:grid-cols-[220px_minmax(0,840px)_220px] min-[1400px]:items-start min-[1400px]:gap-8 min-[1700px]:max-w-[1640px] min-[1700px]:grid-cols-[280px_minmax(0,920px)_280px] min-[1700px]:gap-12"
       >
-        <ServiceSidebar groupLabel="Dental Implants" currentHref={currentHref} />
+        <ServiceSidebar groupLabel="Dental implants" currentHref={currentHref} />
 
-        <div class="grid gap-20 lg:col-start-2 lg:gap-24">
+        <div class="grid gap-20 lg:gap-24 min-[1400px]:col-start-2">
           <section class="pb-2 lg:pb-0" aria-labelledby="faq-intro-heading">
             <div class="max-w-5xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Frequently Asked Questions
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Frequently asked questions
               </p>
               <h2
                 id="faq-intro-heading"
@@ -149,7 +149,7 @@ const quickAnswers = [
               </div>
 
               <div class="mt-8 rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-8">
-                <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                <p class="text-xs font-bold tracking-[.28em] text-secondary">
                   Why choose a specialist?
                 </p>
                 <p class="mt-3 text-base leading-7 text-muted">
@@ -163,8 +163,8 @@ const quickAnswers = [
 
           <section class="pt-4 lg:pt-2" aria-labelledby="faq-heading">
             <div class="max-w-3xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Patient Questions
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Patient questions
               </p>
               <h2
                 id="faq-heading"
@@ -205,8 +205,8 @@ const quickAnswers = [
             data-reveal
           >
             <div>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Treatment Timing
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Treatment timing
               </p>
               <h2
                 id="timing-heading"
@@ -229,8 +229,8 @@ const quickAnswers = [
 
           <section class="grid gap-8 md:grid-cols-2">
             <article class="rounded-lg border border-line bg-surface p-8 shadow-sm sm:p-9 lg:p-10" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
-                Cost Considerations
+              <p class="text-xs font-bold tracking-[.28em] text-secondary">
+                Cost considerations
               </p>
               <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
                 Are there downsides to dental implants?
@@ -247,7 +247,7 @@ const quickAnswers = [
               data-reveal
               style="--reveal-delay: 120ms"
             >
-              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+              <p class="text-xs font-bold tracking-[.28em] text-secondary">
                 Consultation
               </p>
               <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
@@ -264,8 +264,8 @@ const quickAnswers = [
           <section class="rounded-lg bg-midnight px-8 py-12 text-surface sm:px-10 lg:px-12 lg:py-14">
             <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
               <div data-reveal>
-                <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                  Reclaim Confidence
+                <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                  Reclaim confidence
                 </p>
                 <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
                   Bring us your implant questions.
@@ -297,7 +297,7 @@ const quickAnswers = [
           </section>
         </div>
 
-        <div class="hidden lg:block" aria-hidden="true"></div>
+        <div class="hidden min-[1400px]:block" aria-hidden="true"></div>
       </div>
     </section>
   </main>

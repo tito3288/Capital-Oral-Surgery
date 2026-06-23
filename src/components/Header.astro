@@ -30,7 +30,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
     </a>
 
     <nav
-      class="hidden items-center gap-9 self-stretch text-[15px] font-medium lg:flex"
+      class="hidden items-center gap-9 self-stretch text-[15px] font-medium xl:flex"
       aria-label="Primary"
     >
       {
@@ -51,15 +51,15 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
                 </span>
               </a>
               <div
-                class="invisible absolute left-1/2 top-full z-50 w-[min(calc(100vw-2.5rem),960px)] -translate-x-1/2 pt-4 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                class="invisible absolute left-[max(1.25rem,calc((100vw-1232px)/2))] top-full z-50 w-[min(calc(100vw-20rem),960px)] min-w-[860px] pt-4 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
               >
                 <div class="grid gap-8 rounded-lg border border-line/70 bg-surface p-8 text-foreground shadow-2xl md:grid-cols-3">
                   {
-                    serviceGroups.map(({ label, href, items }, groupIndex) => (
+                    serviceGroups.map(({ label, href, items }) => (
                       <div>
                         <a
                           href={href}
-                          class="block border-b border-line pb-4 text-xs font-bold uppercase tracking-[.28em] text-secondary transition-colors hover:text-foreground focus:text-foreground focus:outline-none"
+                          class="block border-b border-line pb-4 text-xs font-bold tracking-[.28em] text-secondary transition-colors hover:text-foreground focus:text-foreground focus:outline-none"
                         >
                           {label}
                         </a>
@@ -80,11 +80,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
                               </a>
                               {childItems && (
                                 <div
-                                  class={`invisible absolute top-0 z-50 w-72 opacity-0 transition duration-150 group-hover/submenu:visible group-hover/submenu:opacity-100 group-focus-within/submenu:visible group-focus-within/submenu:opacity-100 ${
-                                    groupIndex === serviceGroups.length - 1
-                                      ? "right-full pr-3"
-                                      : "left-full pl-3"
-                                  }`}
+                                  class="invisible absolute left-full top-0 z-50 w-72 pl-3 opacity-0 transition duration-150 group-hover/submenu:visible group-hover/submenu:opacity-100 group-focus-within/submenu:visible group-focus-within/submenu:opacity-100"
                                 >
                                   <div class="rounded-lg border border-line/70 bg-surface p-3 shadow-2xl">
                                     {childItems.map(({ label, href }) => (
@@ -156,7 +152,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
       }
     </nav>
 
-    <div class="hidden items-center gap-3 lg:flex">
+    <div class="hidden items-center gap-3 xl:flex">
       <a
         href="/contact-us/"
         class="inline-flex h-11 items-center rounded-md bg-secondary px-5 text-sm font-bold text-surface transition-opacity hover:opacity-90"
@@ -171,7 +167,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
       </a>
     </div>
 
-    <details class="group/menu lg:hidden">
+    <details class="group/menu xl:hidden">
       <summary
         class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-md border border-surface/30 text-surface select-none"
         aria-label="Toggle navigation menu"
@@ -221,7 +217,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
                     <div class="pb-2">
                       {serviceGroups.map(({ label, items }) => (
                         <details class="group/category border-t border-foreground/10 py-1">
-                          <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-3 text-xs font-bold uppercase tracking-[.28em] text-foreground hover:text-secondary">
+                          <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-3 text-xs font-bold tracking-[.28em] text-foreground hover:text-secondary">
                             <span>{label}</span>
                             <span
                               class="text-sm transition-transform group-open/category:rotate-180"

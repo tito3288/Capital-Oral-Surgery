@@ -33,6 +33,14 @@ body {
   font-family: var(--font-heading);
 }
 
+h1,
+h2,
+h3,
+p[class*="tracking-"],
+figcaption[class*="tracking-"] {
+  text-transform: capitalize;
+}
+
 html.reveal-ready [data-reveal] {
   opacity: 0;
   transform: translateY(24px);

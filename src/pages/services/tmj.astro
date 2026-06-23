@@ -47,7 +47,7 @@ const selfCare = [
   <main>
     <section class="bg-midnight text-surface" aria-labelledby="service-heading">
       <div
-        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-14 px-5 py-14 lg:grid-cols-[minmax(0,610px)_minmax(380px,500px)] lg:px-0"
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
       >
         <div data-reveal>
           <a
@@ -56,12 +56,12 @@ const selfCare = [
           >
             ← Services
           </a>
-          <p class="mt-10 text-xs font-bold uppercase tracking-[.34em] text-secondary">
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
             Procedures
           </p>
           <h1
             id="service-heading"
-            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl lg:text-[72px]"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
           >
             TMJ disorders.
           </h1>
@@ -114,15 +114,15 @@ const selfCare = [
 
     <section class="bg-background py-20 text-foreground lg:py-24">
       <div
-        class="mx-auto grid max-w-[1600px] gap-10 px-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,920px)_minmax(0,1fr)] lg:items-start lg:gap-12"
+        class="mx-auto grid max-w-[920px] gap-10 px-5 min-[1400px]:max-w-[1400px] min-[1400px]:grid-cols-[220px_minmax(0,840px)_220px] min-[1400px]:items-start min-[1400px]:gap-8 min-[1700px]:max-w-[1640px] min-[1700px]:grid-cols-[280px_minmax(0,920px)_280px] min-[1700px]:gap-12"
       >
         <ServiceSidebar groupLabel="Procedures" currentHref={currentHref} />
 
-        <div class="grid gap-20 lg:col-start-2 lg:gap-24">
+        <div class="grid gap-20 lg:gap-24 min-[1400px]:col-start-2">
           <section class="pb-2 lg:pb-0" aria-labelledby="overview-heading">
             <div class="max-w-5xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Jaw Joint Health
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Jaw joint health
               </p>
               <h2
                 id="overview-heading"
@@ -150,7 +150,7 @@ const selfCare = [
               </div>
 
               <div class="mt-8 rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-8">
-                <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
+                <p class="text-xs font-bold tracking-[.28em] text-secondary">
                   Treatment takes time
                 </p>
                 <p class="mt-3 text-base leading-7 text-muted">
@@ -164,8 +164,8 @@ const selfCare = [
 
           <section class="pt-4 lg:pt-2" aria-labelledby="symptoms-heading">
             <div class="max-w-3xl" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Do You Have a TMJ Disorder?
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Do you have a TMJ disorder?
               </p>
               <h2
                 id="symptoms-heading"
@@ -206,8 +206,8 @@ const selfCare = [
             data-reveal
           >
             <div>
-              <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                Self-Care and Support
+              <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                Self-care and support
               </p>
               <h2
                 id="self-care-heading"
@@ -230,8 +230,8 @@ const selfCare = [
 
           <section class="grid gap-8 md:grid-cols-2">
             <article class="rounded-lg border border-line bg-surface p-8 shadow-sm sm:p-9 lg:p-10" data-reveal>
-              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
-                Splints and Night Guards
+              <p class="text-xs font-bold tracking-[.28em] text-secondary">
+                Splints and night guards
               </p>
               <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
                 Appliances can relax muscles and protect the joint.
@@ -248,8 +248,8 @@ const selfCare = [
               data-reveal
               style="--reveal-delay: 120ms"
             >
-              <p class="text-xs font-bold uppercase tracking-[.28em] text-secondary">
-                Bite Correction or Surgery
+              <p class="text-xs font-bold tracking-[.28em] text-secondary">
+                Bite correction or surgery
               </p>
               <h2 class="serif mt-5 text-3xl leading-tight text-foreground">
                 More involved care is reserved for specific cases.
@@ -266,8 +266,8 @@ const selfCare = [
           <section class="rounded-lg bg-midnight px-8 py-12 text-surface sm:px-10 lg:px-12 lg:py-14">
             <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
               <div data-reveal>
-                <p class="text-xs font-bold uppercase tracking-[.34em] text-secondary">
-                  Healthier Jaw Function
+                <p class="text-xs font-bold tracking-[.34em] text-secondary">
+                  Healthier jaw function
                 </p>
                 <h2 class="serif mt-4 text-4xl leading-tight sm:text-5xl">
                   Start with a TMJ evaluation.
@@ -299,7 +299,7 @@ const selfCare = [
           </section>
         </div>
 
-        <div class="hidden lg:block" aria-hidden="true"></div>
+        <div class="hidden min-[1400px]:block" aria-hidden="true"></div>
       </div>
     </section>
   </main>
