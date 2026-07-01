@@ -7,7 +7,9 @@ interface Props {
 }
 
 const { groupLabel, currentHref } = Astro.props;
-const serviceGroup = serviceGroups.find((group) => group.label === groupLabel);
+const serviceGroup = serviceGroups.find(
+  (group) => group.label.toLowerCase() === groupLabel.toLowerCase(),
+);
 ---
 
 {
