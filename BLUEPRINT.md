@@ -26,6 +26,7 @@ Use `src/components/Header.astro`.
 - Background: `bg-midnight`
 - Logo left, desktop nav centered/right, and two CTAs on the far right
 - Nav anchors: `#about`, `#procedures`, `#team`, `#appointment`
+- Show `Patient Resources` as a non-interactive desktop and mobile nav placeholder until its destination is supplied
 - Mobile/tablet uses the existing `details` menu until the `lg` breakpoint; the opened menu is a full-height panel below the 76px header using `100dvh`
 - CTAs: solid `Request Appointment` button to `#appointment`; bordered `Referring Doctors` button to `/referring-doctors`
 
@@ -42,7 +43,7 @@ Use `src/components/Hero.astro`.
 - Floating review card overlaps the image area on desktop
 - Primary copy:
   - "Surgical expertise, delivered with calm."
-  - "From wisdom teeth to dental implants and corrective jaw surgery, our three specialists guide you through every step with clarity and care."
+  - "From wisdom teeth to dental implants and corrective jaw surgery, our two specialists guide you through every step with clarity and care."
 
 ### Specialized Care
 
@@ -62,11 +63,10 @@ Use `src/components/MeetTeam.astro`.
 - Section id: `team`
 - White background
 - Centered eyebrow and serif heading
-- Three doctor portrait blocks in a desktop grid
+- Two doctor portrait blocks in a desktop grid
 - Portrait frames keep `aspect-[20/19]`
 - Dr. Patrick Lucaci uses `/images/doctor-patrick-lucaci.jpg`
 - Dr. Owen Lonergan uses `/images/doctor-owen-lonergan.jpg`
-- Dr. Emily Eickhoff uses `/images/doctor-emily-eickhoff.jpeg`
 - Use initials placeholders only for doctors whose final headshots have not been supplied
 
 ### Procedures

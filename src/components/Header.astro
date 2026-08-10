@@ -6,6 +6,7 @@ const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Services", href: "/#procedures" },
   { label: "Doctors", href: "/#team" },
+  { label: "Patient Resources" },
   { label: "Contact", href: "/contact-us/" },
 ];
 
@@ -140,6 +141,13 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
                 </div>
               </div>
             </div>
+          ) : label === "Patient Resources" ? (
+            <span
+              class="inline-flex min-h-[76px] cursor-default items-center"
+              aria-disabled="true"
+            >
+              {label}
+            </span>
           ) : (
             <a
               class="inline-flex min-h-[76px] items-center transition-colors hover:text-accent"
@@ -294,6 +302,13 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
                       }
                     </div>
                   </details>
+                ) : label === "Patient Resources" ? (
+                  <span
+                    class="block cursor-default py-3 text-lg text-foreground"
+                    aria-disabled="true"
+                  >
+                    {label}
+                  </span>
                 ) : (
                   <a class="block py-3 text-lg text-foreground hover:text-secondary" href={href}>
                     {label}
