@@ -136,10 +136,10 @@ const patientResourceLinks = [
               <div
                 class="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-4 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
               >
-                <div class="rounded-lg border border-surface/10 bg-midnight p-3 shadow-2xl">
+                <div class="rounded-lg border border-line/70 bg-surface p-3 text-foreground shadow-2xl">
                   <a
                     href="/#team"
-                    class="block rounded-md px-4 py-3 text-sm font-bold text-surface/70 transition-colors hover:bg-surface/10 hover:text-aqua-pale focus:bg-surface/10 focus:text-aqua-pale focus:outline-none"
+                    class="block rounded-md px-4 py-3 text-sm font-bold text-secondary transition-colors hover:bg-aqua-soft hover:text-foreground focus:bg-aqua-soft focus:text-foreground focus:outline-none"
                   >
                     Meet All Doctors
                   </a>
@@ -147,7 +147,7 @@ const patientResourceLinks = [
                     doctorLinks.map(({ label, href }) => (
                       <a
                         href={href}
-                        class="block rounded-md px-4 py-3 text-sm text-surface transition-colors hover:bg-surface/10 hover:text-aqua-pale focus:bg-surface/10 focus:text-aqua-pale focus:outline-none"
+                        class="block rounded-md px-4 py-3 text-sm text-muted transition-colors hover:bg-aqua-soft hover:text-foreground focus:bg-aqua-soft focus:text-foreground focus:outline-none"
                       >
                         {label}
                       </a>
@@ -174,12 +174,12 @@ const patientResourceLinks = [
               <div
                 class="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-4 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
               >
-                <div class="rounded-lg border border-surface/10 bg-midnight p-3 shadow-2xl">
+                <div class="rounded-lg border border-line/70 bg-surface p-3 text-foreground shadow-2xl">
                   {
                     patientResourceLinks.map(({ label, href }) => (
                       <a
                         href={href}
-                        class="block rounded-md px-4 py-3 text-sm text-surface transition-colors hover:bg-surface/10 hover:text-aqua-pale focus:bg-surface/10 focus:text-aqua-pale focus:outline-none"
+                        class="block rounded-md px-4 py-3 text-sm text-muted transition-colors hover:bg-aqua-soft hover:text-foreground focus:bg-aqua-soft focus:text-foreground focus:outline-none"
                       >
                         {label}
                       </a>
