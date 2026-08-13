@@ -25,6 +25,7 @@ export type DoctorListSection = {
 
 export type Doctor = {
   name: string;
+  credentials: string;
   slug: string;
   initials: string;
   role: string;
@@ -45,6 +46,7 @@ export type Doctor = {
 export const doctors = [
   {
     name: "Dr. Patrick Lucaci",
+    credentials: "DDS, MD",
     slug: "patrick-lucaci",
     initials: "PL",
     role: "Oral surgeon in Topeka KS",
@@ -141,6 +143,7 @@ export const doctors = [
   },
   {
     name: "Dr. Owen Lonergan",
+    credentials: "MPH, DMD, MD",
     slug: "owen-lonergan",
     initials: "OL",
     role: "Oral surgeon in Topeka KS",

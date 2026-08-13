@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import ServiceSidebar from "../../components/ServiceSidebar.astro";
+import { OFFICE_PHONE } from "../../lib/site";
 
 const title =
   "Single Tooth Implant | Dental Implant Placement in Topeka, KS | Capital Oral Surgery";
@@ -80,10 +81,10 @@ const implantSequence = [
               Request Appointment
             </a>
             <a
-              href="tel:7852720444"
+              href={OFFICE_PHONE.href}
               class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
             >
-              Call (785) 272-0444
+              Call {OFFICE_PHONE.display}
             </a>
           </div>
         </div>
@@ -191,7 +192,7 @@ const implantSequence = [
                     data-reveal
                     style={`--reveal-delay: ${(index % 2) * 80}ms`}
                   >
-                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-aqua-pale text-sm font-bold text-secondary">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-surface">
                       {number}
                     </div>
                     <h3 class="serif mt-6 text-2xl font-bold text-foreground">
@@ -268,7 +269,7 @@ const implantSequence = [
             </article>
           </section>
 
-          <section class="rounded-lg bg-midnight px-8 py-12 text-surface sm:px-10 lg:px-12 lg:py-14">
+          <section class="rounded-lg service-cyan-cta px-8 py-12 sm:px-10 lg:px-12 lg:py-14">
             <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
               <div data-reveal>
                 <p class="text-xs font-bold tracking-[.34em] text-secondary">
@@ -294,10 +295,10 @@ const implantSequence = [
                   Request Appointment
                 </a>
                 <a
-                  href="tel:7852720444"
+                  href={OFFICE_PHONE.href}
                   class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10"
                 >
-                  Call (785) 272-0444
+                  Call {OFFICE_PHONE.display}
                 </a>
               </div>
             </div>

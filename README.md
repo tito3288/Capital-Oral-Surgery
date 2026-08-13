@@ -12,7 +12,7 @@ The approved current design is documented in:
 - `src/styles/global.css`
 - the live homepage components in `src/components/`
 
-Use the current homepage style for future pages and edits: calm surgical editorial layout, midnight/teal/aqua palette, serif headings, stable image aspect-ratio placeholders, restrained cards, and simple full-width section bands.
+Use the current homepage style for future pages and edits: calm surgical editorial layout, client-cyan feature bands with deep-blue heroes and actions, serif headings, stable image aspect-ratio placeholders, restrained cards, and simple full-width section bands.
 
 Avoid reviving the older generated concept with glassmorphism, gradient hero overlays, overlapping info cards, or the old patient-confidence/CTA blocks.
 

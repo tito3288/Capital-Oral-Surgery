@@ -1,0 +1,196 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { OFFICE_PHONE } from "../lib/site";
+
+const title =
+  "Dental Anxiety & Phobia | Capital Oral Surgery and Dental Implants, Topeka KS";
+const description =
+  "Whatever your individual level of anxiety may be, our office is committed to making sure that your visit is as comfortable, quick and easy as possible.";
+
+const anxietySolutions = [
+  {
+    label: "Communication:",
+    description:
+      "Informing us as to what you are afraid of is a great place to start. Often we can quell a fear simply by giving you correct or updated information. We will always keep you informed before, during and after your procedure, making sure that you understand what is going on and why we are doing it.",
+  },
+  {
+    label: "Calming Techniques:",
+    description:
+      "Many patients find it helpful to practice controlled breathing or to find distraction inside the room.",
+  },
+  {
+    label: "Listening to Music:",
+    description:
+      "With most procedures, the use of personal headphones and music is allowed. This is a great way to keep calm and pass the time while in the chair.",
+  },
+  {
+    label: "Oral Sedation:",
+    description:
+      "Depending on the nature of your procedure, various types of sedation may be available to you including oral sedation.",
+  },
+  {
+    label: "Taking Breaks:",
+    description:
+      "Let us know if you would like to take a short break during your treatment by signaling with your left hand.",
+  },
+];
+---
+
+<Layout title={title} description={description} ogImage="/images/specialized-care.jpg">
+  <Header />
+  <main>
+    <section class="bg-midnight text-surface" aria-labelledby="dental-anxiety-heading">
+      <div
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
+      >
+        <div data-reveal>
+          <a
+            href="/"
+            class="inline-flex text-sm font-bold text-accent transition-colors hover:text-surface"
+          >
+            ← Home
+          </a>
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
+            Patient Resources
+          </p>
+          <h1
+            id="dental-anxiety-heading"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
+          >
+            Solutions for Overcoming Dental Fear
+          </h1>
+          <p class="mt-7 max-w-[610px] text-lg font-bold leading-8 text-surface sm:text-xl">
+            Capital Oral Surgery and Dental Implants can help you get the care you need.
+          </p>
+        </div>
+
+        <div
+          class="relative mx-auto w-full max-w-[500px] lg:mx-0"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <div
+            class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-secondary"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface/5">
+            <img
+              src="/images/specialized-care.jpg"
+              alt="Dental imaging equipment at Capital Oral Surgery"
+              class="h-full w-full object-cover object-center"
+              width="5184"
+              height="3456"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-20 text-foreground lg:py-24">
+      <div class="mx-auto grid max-w-[920px] gap-16 px-5 lg:gap-20">
+        <section aria-labelledby="not-uncommon-heading" data-reveal>
+          <h2
+            id="not-uncommon-heading"
+            class="serif text-4xl leading-tight sm:text-5xl"
+          >
+            Dental Anxiety is Not Uncommon
+          </h2>
+          <p class="mt-7 text-base leading-8 text-muted">
+            In fact, some studies show that up to 75% of Americans experience some level of dental related fear and 20% avoid dental care because of it. If you have a fear of dental work, we want you to know that making you feel comfortable and safe at our office is our first priority.
+          </p>
+        </section>
+
+        <section
+          class="rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-10 lg:p-12"
+          aria-labelledby="anxiety-phobia-heading"
+          data-reveal
+        >
+          <h2
+            id="anxiety-phobia-heading"
+            class="serif text-4xl leading-tight sm:text-5xl"
+          >
+            Dental Anxiety vs. Dental Phobia
+          </h2>
+          <p class="mt-7 text-base leading-8 text-muted">
+            Dental anxieties and phobias present themselves in a wide variety of ways, and specific fears vary from person to person. <strong class="text-foreground">Dental anxiety</strong> may be mild to moderate, and often takes the form of a general sense of worry and apprehension when thinking about an upcoming procedure. <strong class="text-foreground">Dental phobia</strong> is a more intense experience, with patients feeling an overwhelming, irrational fear of dental work. This can sometimes cause them to avoid care all together.
+          </p>
+        </section>
+
+        <section aria-labelledby="help-heading" data-reveal>
+          <h2 id="help-heading" class="serif text-4xl leading-tight sm:text-5xl">
+            We Can Help!
+          </h2>
+          <p class="mt-7 text-base leading-8 text-muted">
+            Whatever your individual level of anxiety may be, our office is committed to making sure that your visit is as comfortable, quick and easy as possible. There are many solutions for dental anxiety, and we are ready to help.
+          </p>
+          <p class="mt-7 text-base leading-8 text-muted">
+            <strong class="text-foreground">Here are a few popular methods for easing anxiety in the dental office:</strong>
+          </p>
+
+          <ul class="mt-8 grid gap-5 md:grid-cols-2">
+            {
+              anxietySolutions.map(({ label, description }, index) => (
+                <li
+                  class="rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-8"
+                  data-reveal
+                  style={`--reveal-delay: ${(index % 2) * 80}ms`}
+                >
+                  <h3 class="serif text-2xl font-bold leading-tight text-foreground">
+                    {label}
+                  </h3>
+                  <p class="mt-4 text-base leading-7 text-muted">{description}</p>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section
+      class="brand-cyan-band px-5 py-20 lg:py-24"
+      aria-labelledby="appointment-heading"
+    >
+      <div
+        class="mx-auto grid max-w-[920px] gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center"
+      >
+        <div data-reveal>
+          <p class="max-w-[650px] text-lg font-bold leading-8 text-surface">
+            Oral health is important for the health of your whole body. Don't let fear stand in your way of good dental care! We can help you get the care that you need.
+          </p>
+          <h2
+            id="appointment-heading"
+            class="serif mt-5 text-4xl leading-tight sm:text-5xl"
+          >
+            Call Today to Make an Appointment
+          </h2>
+        </div>
+        <div
+          class="flex flex-col gap-3 sm:flex-row lg:flex-col"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <a
+            href={OFFICE_PHONE.href}
+            class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
+          >
+            {OFFICE_PHONE.display}
+          </a>
+          <a
+            href="/contact-us/"
+            class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90 sm:min-w-[216px]"
+          >
+            Request an Appointment
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

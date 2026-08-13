@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { OFFICE_PHONE } from "../lib/site";
+
+const title =
+  "Why Choose Our Practice | Capital Oral Surgery and Dental Implants, Topeka KS";
+const description =
+  "Our Topeka oral surgery office provides top quality care to patients. Learn why patients choose us.";
+
+const practiceBenefits = [
+  {
+    title: "Care and Commitment",
+    body: "From the front office to the exam room, our practice is made up of professionals who take your oral health very seriously. Using state-of-the-art equipment designed with safety and efficiency in mind, we are able to offer top-notch care. As you walk through our office, you will notice that everything is clean, comfortable and thoroughly sterilized. Your safety and comfort are our priority.",
+  },
+  {
+    title: "Honesty and Affordability",
+    body: "We know that the cost of care can be confusing. In addition to offering a number of in-office payment options to fit your budget, we also give you up-front cost information on your treatment ahead of time. We are in network with a variety of insurance plans, and we offer various forms of dental financing with credit available in time frames that fit your needs. We are happy to help you navigate your dental insurance and alternative payment options.",
+  },
+  {
+    title: "Easy Access to Oral Surgery Care and Information",
+    body: "We know that your time is valuable to you, and that's why we offer extended office hours on select days, appointment reminders, and a quick turnaround time on calls and appointment requests. We are happy to answer any questions or concerns in the office, over the phone or via email.",
+  },
+  {
+    title: "Comprehensive Oral Surgery Care in One Location",
+    body: "At our practice, we are qualified to handle all aspects of your oral and maxillofacial care, so you are always surrounded by people that you trust. If we must refer out, we promise to send you to carefully vetted colleagues who apply the same professional principles in their office that we do in ours.",
+  },
+  {
+    title: "Comfort",
+    body: "We respect and understand that many patients experience dental anxiety. At our office, we do everything we can to make sure that your experience is as enjoyable as possible. By communicating clearly what you can expect during your treatment, we are often able to alleviate dental fear. We encourage you to bring headphones and music to listen to during your treatment and ask us about sedation options.",
+  },
+  {
+    title: "Personalized Service",
+    body: "At our practice, you aren't just a patient. We take an interest in you and your oral health needs. We think you'll find a friend in your oral surgeon during your visit!",
+  },
+];
+---
+
+<Layout title={title} description={description} ogImage="/images/specialized-care.jpg">
+  <Header />
+  <main>
+    <section class="bg-midnight text-surface" aria-labelledby="why-choose-heading">
+      <div
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
+      >
+        <div data-reveal>
+          <a
+            href="/"
+            class="inline-flex text-sm font-bold text-accent transition-colors hover:text-surface"
+          >
+            ← Home
+          </a>
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
+            Patient Resources
+          </p>
+          <h1
+            id="why-choose-heading"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
+          >
+            Why Choose Our Practice?
+          </h1>
+          <p class="mt-7 max-w-[610px] text-lg leading-8 text-surface/75 sm:text-xl">
+            When it comes to picking an oral surgeon, we know that you have options. Personalized, gentle, comprehensive patient care is our number one priority.
+          </p>
+        </div>
+
+        <div
+          class="relative mx-auto w-full max-w-[500px] lg:mx-0"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <div
+            class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-secondary"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface/5">
+            <img
+              src="/images/specialized-care.jpg"
+              alt="Dental imaging equipment at Capital Oral Surgery"
+              class="h-full w-full object-cover object-center"
+              width="5184"
+              height="3456"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-20 text-foreground lg:py-24">
+      <div class="mx-auto max-w-[1100px] px-5">
+        <p class="text-lg leading-8 text-muted" data-reveal>
+          <strong class="text-foreground">Here are just a few things that make our practice unique:</strong>
+        </p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:gap-7">
+          {
+            practiceBenefits.map(({ title, body }, index) => (
+              <article
+                class="rounded-lg border border-line bg-surface p-8 shadow-sm sm:p-9 lg:p-10"
+                data-reveal
+                style={`--reveal-delay: ${(index % 2) * 80}ms`}
+              >
+                <h2 class="serif text-3xl font-bold leading-tight text-foreground">
+                  {title}
+                </h2>
+                <p class="mt-5 text-base leading-8 text-muted">{body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="brand-cyan-band px-5 py-20 lg:py-24"
+      aria-labelledby="choice-cta-heading"
+    >
+      <div
+        class="mx-auto grid max-w-[920px] gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center"
+      >
+        <h2
+          id="choice-cta-heading"
+          class="serif text-4xl leading-tight sm:text-5xl"
+          data-reveal
+        >
+          Give us a call today! You'll be happy you chose us for your oral surgery needs!
+        </h2>
+        <div
+          class="flex flex-col gap-3 sm:flex-row lg:flex-col"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <a
+            href={OFFICE_PHONE.href}
+            class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
+          >
+            {OFFICE_PHONE.display}
+          </a>
+          <a
+            href="/contact-us/"
+            class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90 sm:min-w-[216px]"
+          >
+            Request an Appointment
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

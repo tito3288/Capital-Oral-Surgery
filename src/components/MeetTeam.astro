@@ -26,6 +26,7 @@ import { doctors } from "../data/doctors";
           (
             {
               name,
+              credentials,
               slug,
               initials,
               image,
@@ -45,7 +46,7 @@ import { doctors } from "../data/doctors";
             >
               <div class="relative">
               <div
-                class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-secondary transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"
+                class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-accent transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"
                 aria-hidden="true"
               >
               </div>
@@ -76,7 +77,10 @@ import { doctors } from "../data/doctors";
               <h3 class="serif mt-8 text-2xl font-bold text-foreground transition-colors group-hover:text-secondary">
                 {name}
               </h3>
-              <p class="mt-3 text-xs font-bold tracking-[.32em] text-secondary">
+              <p class="mt-3 text-xs font-semibold tracking-[.24em] text-secondary">
+                {credentials}
+              </p>
+              <p class="mt-2 text-sm text-muted">
                 {role}
               </p>
               <p class="mt-5 inline-flex items-center text-sm font-bold text-foreground transition-colors group-hover:text-secondary">

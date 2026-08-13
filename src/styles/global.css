@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-secondary: #00a9c0;
-  --color-accent: #63e8f7;
+  --color-primary: #115db7;
+  --color-secondary: #115db7;
+  --color-brand-blue: #2485c8;
+  --color-brand-cyan: #33a0cc;
+  --color-accent: #47c4d4;
   --color-background: #f4f1eb;
   --color-surface: #ffffff;
-  --color-aqua-soft: #e9f7f8;
-  --color-aqua-pale: #dff5f8;
+  --color-aqua-soft: #ebf6fa;
+  --color-aqua-pale: #def4f7;
   --color-foreground: #0f172a;
   --color-muted: #475569;
   --color-line: #d8dde3;
   --color-placeholder: #98a2b3;
-  --color-midnight: #142a30;
+  --color-midnight: #115db7;
 
   --font-heading: Georgia, Cambria, "Times New Roman", serif;
   --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
@@ -27,6 +30,178 @@ body {
   color: var(--color-foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.brand-header {
+  position: relative;
+  background-color: var(--color-primary);
+}
+
+.brand-header::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-brand-blue) 34%,
+    var(--color-brand-cyan) 68%,
+    var(--color-accent)
+  );
+  content: "";
+  pointer-events: none;
+}
+
+/* Keep type and actions distinct on the deep-blue brand panels. */
+.bg-midnight .text-secondary,
+.bg-midnight .text-accent {
+  color: var(--color-aqua-pale);
+}
+
+.bg-midnight .border-secondary {
+  border-color: var(--color-accent);
+}
+
+.bg-midnight .text-surface\/75,
+.bg-midnight .text-surface\/70,
+.bg-midnight .text-surface\/55 {
+  color: rgb(255 255 255 / 0.85);
+}
+
+.bg-midnight .border-surface\/40,
+.bg-midnight .border-surface\/35 {
+  border-color: rgb(255 255 255 / 0.6);
+}
+
+.bg-midnight .bg-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.bg-midnight .bg-surface {
+  color: var(--color-foreground);
+}
+
+.bg-midnight .bg-surface .text-secondary,
+.bg-midnight .bg-surface .text-accent {
+  color: var(--color-secondary);
+}
+
+.bg-midnight .bg-surface .bg-secondary {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.bg-midnight .bg-surface .border-secondary {
+  border-color: var(--color-primary);
+}
+
+/* Cyan is the recurring brand surface; blue remains the action color. */
+.brand-cyan-band {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.brand-cyan-band .text-secondary,
+.brand-cyan-band .text-accent,
+.brand-cyan-band .text-foreground,
+.brand-cyan-band .text-muted,
+.brand-cyan-band .text-surface,
+.brand-cyan-band .text-surface\/75 {
+  color: var(--color-surface);
+}
+
+.brand-cyan-band .border-surface\/40 {
+  border-color: rgb(255 255 255 / 0.65);
+}
+
+.brand-cyan-band .border-secondary {
+  border-color: rgb(255 255 255 / 0.65);
+}
+
+.brand-cyan-band .bg-secondary {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.brand-cyan-band .bg-secondary .text-surface {
+  color: var(--color-surface);
+}
+
+.brand-cyan-band .hover\:bg-surface\/10:hover {
+  background-color: rgb(255 255 255 / 0.12);
+}
+
+.brand-cyan-band .hover\:bg-surface:hover {
+  background-color: rgb(255 255 255 / 0.12);
+}
+
+.brand-cyan-band .hover\:text-foreground:hover {
+  color: var(--color-surface);
+}
+
+/* White cards and forms nested in cyan bands keep their normal dark copy. */
+.brand-cyan-band .bg-surface {
+  color: var(--color-foreground);
+}
+
+.brand-cyan-band .bg-surface .text-foreground {
+  color: var(--color-foreground);
+}
+
+.brand-cyan-band .bg-surface .text-muted {
+  color: var(--color-muted);
+}
+
+.brand-cyan-band .bg-surface .text-secondary,
+.brand-cyan-band .bg-surface .text-accent {
+  color: var(--color-secondary);
+}
+
+.brand-cyan-band .bg-surface .bg-secondary {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.brand-cyan-band .bg-surface .bg-secondary .text-surface {
+  color: var(--color-surface);
+}
+
+.service-cyan-cta {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.service-cyan-cta .text-secondary,
+.service-cyan-cta .text-accent,
+.service-cyan-cta .text-foreground,
+.service-cyan-cta .text-muted,
+.service-cyan-cta .text-surface,
+.service-cyan-cta .text-surface\/75 {
+  color: var(--color-surface);
+}
+
+.service-cyan-cta .bg-secondary {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.service-cyan-cta .border-surface\/40 {
+  border-color: rgb(255 255 255 / 0.65);
+}
+
+.service-cyan-cta .hover\:bg-surface\/10:hover {
+  background-color: rgb(255 255 255 / 0.12);
+}
+
+.service-cyan-cta .hover\:text-foreground:hover {
+  color: var(--color-surface);
 }
 
 .serif {
@@ -57,6 +232,10 @@ html.reveal-ready [data-reveal].is-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   html.reveal-ready [data-reveal] {
     opacity: 1;
     transform: none;

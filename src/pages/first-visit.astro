@@ -1,0 +1,183 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { OFFICE_PHONE } from "../lib/site";
+
+const title =
+  "First Visit | Capital Oral Surgery and Dental Implants, Topeka KS";
+const description =
+  "Prepare for your first visit to our Topeka, KS oral surgery office — what to bring, consultation details, and pre-surgery instructions.";
+---
+
+<Layout title={title} description={description} ogImage="/images/specialized-care.jpg">
+  <Header />
+  <main>
+    <section class="bg-midnight text-surface" aria-labelledby="first-visit-heading">
+      <div
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
+      >
+        <div data-reveal>
+          <a
+            href="/"
+            class="inline-flex text-sm font-bold text-accent transition-colors hover:text-surface"
+          >
+            ← Home
+          </a>
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
+            Patient Resources
+          </p>
+          <h1
+            id="first-visit-heading"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
+          >
+            First Visit
+          </h1>
+          <p class="mt-7 max-w-[590px] text-lg leading-8 text-surface/75 sm:text-xl">
+            Your initial appointment will consist of a consultation explaining your diagnosis and treatment options. Occasionally, surgery can be performed the same day as the consultation. However, a complex medical history or treatment plan may require an evaluation and a second appointment to provide treatment on another day.
+          </p>
+        </div>
+
+        <div
+          class="relative mx-auto w-full max-w-[500px] lg:mx-0"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <div
+            class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-secondary"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface/5">
+            <img
+              src="/images/specialized-care.jpg"
+              alt="Dental imaging equipment at Capital Oral Surgery"
+              class="h-full w-full object-cover object-center"
+              width="5184"
+              height="3456"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-20 text-foreground lg:py-28">
+      <div
+        class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[minmax(0,620px)_minmax(0,520px)] lg:items-start lg:gap-16 lg:px-0"
+      >
+        <article
+          class="rounded-lg border border-line bg-background p-7 shadow-sm sm:p-9"
+          data-reveal
+        >
+          <p class="text-base leading-8 text-muted">
+            <strong class="text-foreground">Please assist us by providing the following information at the time of your consultation:</strong>
+          </p>
+          <ul class="mt-6 list-disc space-y-4 pl-6 text-base leading-8 text-muted marker:text-secondary">
+            <li>Your surgical referral slip and any x-rays if applicable.</li>
+            <li>A list of medications you are presently taking.</li>
+            <li>
+              If you have medical or dental insurance, bring the necessary completed forms. This will save time and allow us to help you process any claims.
+            </li>
+          </ul>
+        </article>
+
+        <div class="grid gap-6" data-reveal style="--reveal-delay: 120ms">
+          <aside class="rounded-lg border-l-4 border-secondary bg-aqua-soft p-6 sm:p-7">
+            <p class="text-base leading-8 text-muted">
+              <strong class="text-foreground">IMPORTANT:</strong> All patients under the age of 18 must be accompanied by a parent or guardian at the consultation visit.
+            </p>
+          </aside>
+
+          <article class="rounded-lg border border-line bg-background p-7 shadow-sm sm:p-8">
+            <p class="text-base leading-8 text-muted">
+              A preoperative consultation and physical examination is mandatory for patients undergoing IV anesthesia for surgery. Please have nothing to eat or drink eight hours prior to your surgery. You will also need an adult to drive you home.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-aqua-soft py-20 text-foreground lg:py-28">
+      <div
+        class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[minmax(0,560px)_minmax(0,620px)] lg:items-start lg:gap-20 lg:px-0"
+      >
+        <article
+          class="rounded-lg border border-line bg-surface p-7 shadow-sm sm:p-9"
+          data-reveal
+        >
+          <p class="text-base leading-8 text-muted">
+            Please alert the office if you have a medical condition that may be of concern prior to surgery (i.e., diabetes, high blood pressure, artificial heart valves and joints, rheumatic fever, etc.) or if you are currently taking any medications (i.e., heart medications, aspirin, anticoagulant therapy, etc.).
+          </p>
+        </article>
+
+        <section
+          aria-labelledby="x-rays-heading"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <h2
+            id="x-rays-heading"
+            class="serif text-4xl leading-tight sm:text-5xl"
+          >
+            X-Rays
+          </h2>
+          <p class="mt-6 text-base leading-8 text-muted">
+            If your dentist or physician has taken x-rays you may request that they forward them to our office. If there is not enough time, please pick them up and bring them to our office. If additional films are necessary they can be taken at our facility.
+          </p>
+        </section>
+      </div>
+    </section>
+
+    <section
+      class="brand-cyan-band px-5 py-20 lg:py-24"
+      aria-labelledby="consultation-cta-heading"
+    >
+      <div
+        class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,700px)_auto] lg:items-center lg:px-0"
+      >
+        <div data-reveal>
+          <p class="text-xs font-bold tracking-[.34em] text-secondary">
+            Patient Resources
+          </p>
+          <h2
+            id="consultation-cta-heading"
+            class="serif mt-4 text-4xl leading-tight sm:text-5xl"
+          >
+            Schedule a Consultation Today
+          </h2>
+          <p class="mt-5 max-w-[650px] text-base leading-7 text-surface/75">
+            Dr. Lucaci, Dr. Barber, Dr. Lonergan & our caring staff want to help take care of your oral surgery needs. Book an appointment today!
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-3 sm:flex-row lg:flex-col"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <a
+            href={OFFICE_PHONE.href}
+            class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
+          >
+            {OFFICE_PHONE.display}
+          </a>
+          <a
+            href="/contact-us/"
+            class="inline-flex h-14 items-center justify-center rounded-md bg-secondary px-7 font-bold text-surface transition-opacity hover:opacity-90 sm:min-w-[216px]"
+          >
+            Request an Appointment
+          </a>
+          <a
+            href="/contact-us/#directions-heading"
+            class="inline-flex h-14 items-center justify-center rounded-md border border-surface/40 px-7 text-center font-bold text-surface transition-colors hover:bg-surface/10 sm:min-w-[216px]"
+          >
+            Map &amp; Driving Directions
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

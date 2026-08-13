@@ -3,8 +3,8 @@ import { doctors } from "../data/doctors";
 import { serviceGroups } from "../data/services";
 
 const navLinks = [
-  { label: "About", href: "/#about" },
-  { label: "Services", href: "/#procedures" },
+  { label: "Our Practice", href: "/#about" },
+  { label: "Procedures", href: "/#procedures" },
   { label: "Doctors", href: "/#team" },
   { label: "Patient Resources" },
   { label: "Contact", href: "/contact-us/" },
@@ -14,9 +14,24 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
   label: name,
   href: `/doctors/${slug}/`,
 }));
+
+const patientResourceLinks = [
+  { label: "Refer a Patient", href: "/refer-a-patient/" },
+  { label: "Payment Plans", href: "/payment-plans/" },
+  { label: "Surgical Instructions", href: "/surgical-instructions/" },
+  { label: "First Visit", href: "/first-visit/" },
+  {
+    label: "Dental Anxiety & Phobia",
+    href: "/dental-anxiety-and-phobia/",
+  },
+  {
+    label: "Why Choose Our Practice",
+    href: "/why-choose-our-practice/",
+  },
+];
 ---
 
-<header class="relative z-40 border-b border-surface/5 bg-midnight text-surface">
+<header class="brand-header z-40 border-b border-surface/10 text-surface">
   <div
     class="mx-auto flex min-h-[76px] max-w-[1232px] items-center justify-between px-5"
   >
@@ -36,10 +51,10 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
     >
       {
         navLinks.map(({ label, href }) =>
-          label === "Services" ? (
+          label === "Procedures" ? (
             <div class="group static flex min-h-[76px] items-center">
               <a
-                class="inline-flex items-center gap-2 transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
+                class="inline-flex items-center gap-2 transition-colors hover:text-surface/75 focus:outline-none focus-visible:text-surface/75"
                 href={href}
                 aria-haspopup="true"
               >
@@ -107,7 +122,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
           ) : label === "Doctors" ? (
             <div class="group relative flex min-h-[76px] items-center">
               <a
-                class="inline-flex items-center gap-2 transition-colors hover:text-accent focus:outline-none focus-visible:text-accent"
+                class="inline-flex items-center gap-2 transition-colors hover:text-surface/75 focus:outline-none focus-visible:text-surface/75"
                 href={href}
               >
                 {label}
@@ -124,7 +139,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
                 <div class="rounded-lg border border-surface/10 bg-midnight p-3 shadow-2xl">
                   <a
                     href="/#team"
-                    class="block rounded-md px-4 py-3 text-sm font-bold text-surface/70 transition-colors hover:bg-surface/10 hover:text-accent focus:bg-surface/10 focus:text-accent focus:outline-none"
+                    class="block rounded-md px-4 py-3 text-sm font-bold text-surface/70 transition-colors hover:bg-surface/10 hover:text-aqua-pale focus:bg-surface/10 focus:text-aqua-pale focus:outline-none"
                   >
                     Meet All Doctors
                   </a>
@@ -132,7 +147,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
                     doctorLinks.map(({ label, href }) => (
                       <a
                         href={href}
-                        class="block rounded-md px-4 py-3 text-sm text-surface transition-colors hover:bg-surface/10 hover:text-accent focus:bg-surface/10 focus:text-accent focus:outline-none"
+                        class="block rounded-md px-4 py-3 text-sm text-surface transition-colors hover:bg-surface/10 hover:text-aqua-pale focus:bg-surface/10 focus:text-aqua-pale focus:outline-none"
                       >
                         {label}
                       </a>
@@ -142,15 +157,40 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
               </div>
             </div>
           ) : label === "Patient Resources" ? (
-            <span
-              class="inline-flex min-h-[76px] cursor-default items-center"
-              aria-disabled="true"
-            >
-              {label}
-            </span>
+            <div class="group relative flex min-h-[76px] items-center">
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 transition-colors hover:text-surface/75 focus:outline-none focus-visible:text-surface/75"
+                aria-haspopup="true"
+              >
+                {label}
+                <span
+                  class="text-[10px] leading-none transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+                  aria-hidden="true"
+                >
+                  ▾
+                </span>
+              </button>
+              <div
+                class="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-4 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+              >
+                <div class="rounded-lg border border-surface/10 bg-midnight p-3 shadow-2xl">
+                  {
+                    patientResourceLinks.map(({ label, href }) => (
+                      <a
+                        href={href}
+                        class="block rounded-md px-4 py-3 text-sm text-surface transition-colors hover:bg-surface/10 hover:text-aqua-pale focus:bg-surface/10 focus:text-aqua-pale focus:outline-none"
+                      >
+                        {label}
+                      </a>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
           ) : (
             <a
-              class="inline-flex min-h-[76px] items-center transition-colors hover:text-accent"
+              class="inline-flex min-h-[76px] items-center transition-colors hover:text-surface/75"
               href={href}
             >
               {label}
@@ -160,18 +200,12 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
       }
     </nav>
 
-    <div class="hidden items-center gap-3 xl:flex">
+    <div class="hidden items-center xl:flex">
       <a
         href="/contact-us/"
-        class="inline-flex h-11 items-center rounded-md bg-secondary px-5 text-sm font-bold text-surface transition-opacity hover:opacity-90"
+        class="inline-flex h-11 items-center rounded-md bg-surface px-5 text-sm font-bold text-primary transition-colors hover:bg-aqua-pale"
       >
         Request Appointment
-      </a>
-      <a
-        href="/referring-doctors"
-        class="inline-flex h-11 items-center rounded-md border border-surface/30 px-5 text-sm font-bold text-surface transition-colors hover:border-secondary hover:text-accent"
-      >
-        Referring Doctors
       </a>
     </div>
 
@@ -211,7 +245,7 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
           <nav aria-label="Mobile primary">
             {
               navLinks.map(({ label, href }) =>
-                label === "Services" ? (
+                label === "Procedures" ? (
                   <details class="group/services border-y border-foreground/10 py-1" open>
                     <summary class="flex cursor-pointer list-none items-center justify-between py-3 text-lg font-medium text-foreground hover:text-secondary">
                       <span>{label}</span>
@@ -303,12 +337,29 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
                     </div>
                   </details>
                 ) : label === "Patient Resources" ? (
-                  <span
-                    class="block cursor-default py-3 text-lg text-foreground"
-                    aria-disabled="true"
-                  >
-                    {label}
-                  </span>
+                  <details class="group/resources border-y border-foreground/10 py-1">
+                    <summary class="flex cursor-pointer list-none items-center justify-between py-3 text-lg text-foreground hover:text-secondary">
+                      <span>{label}</span>
+                      <span
+                        class="text-sm transition-transform group-open/resources:rotate-180"
+                        aria-hidden="true"
+                      >
+                        ▾
+                      </span>
+                    </summary>
+                    <div class="pb-4 pl-4">
+                      {
+                        patientResourceLinks.map(({ label, href }) => (
+                          <a
+                            class="block py-2 text-base text-foreground hover:text-secondary"
+                            href={href}
+                          >
+                            {label}
+                          </a>
+                        ))
+                      }
+                    </div>
+                  </details>
                 ) : (
                   <a class="block py-3 text-lg text-foreground hover:text-secondary" href={href}>
                     {label}
@@ -317,18 +368,12 @@ const doctorLinks = doctors.map(({ name, slug }) => ({
               )
             }
           </nav>
-          <div class="mt-8 grid gap-3 sm:grid-cols-2">
+          <div class="mt-8">
             <a
               href="/contact-us/"
-              class="inline-flex justify-center rounded-md bg-secondary px-5 py-3 text-sm font-bold text-surface"
+              class="inline-flex w-full justify-center rounded-md bg-secondary px-5 py-3 text-sm font-bold text-surface sm:w-auto"
             >
               Request Appointment
-            </a>
-            <a
-              href="/referring-doctors"
-              class="inline-flex justify-center rounded-md border border-foreground/20 px-5 py-3 text-sm font-bold text-foreground"
-            >
-              Referring Doctors
             </a>
           </div>
         </div>

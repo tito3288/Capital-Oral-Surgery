@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { theme } from "../lib/theme.config";
 
 interface Props {
   title?: string;
@@ -21,6 +22,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content={theme.colors.primary} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
     <title>{title}</title>

@@ -4,17 +4,17 @@ This file is the design source of truth for future homepage edits and new pages.
 
 ## Overall Direction
 
-The site should feel specialized, steady, and clinically polished. Use generous whitespace, restrained borders, serif editorial headlines, and calm teal/aqua color blocking. Pages should look like they belong to a focused surgical practice, not a marketing landing page.
+The site should feel specialized, steady, and clinically polished. Use generous whitespace, restrained borders, serif editorial headlines, and calm blue/cyan color blocking. Pages should look like they belong to a focused surgical practice, not a marketing landing page.
 
 Use the live homepage as the primary visual reference:
 
-- Dark midnight header and hero
+- Deep-blue header and hero
 - Large serif headlines with cyan emphasis
 - Approved hero photography with remaining future image placeholders preserving their aspect ratios
 - Thin cyan offset borders around image frames
 - White and pale-aqua section bands
 - Minimal cards, subtle shadows, and consistent rounded corners
-- Full-width teal testimonial band
+- Full-width client-cyan testimonial band with white text
 - Pale-aqua appointment form section
 
 ## Canonical Sections
@@ -24,11 +24,13 @@ Use the live homepage as the primary visual reference:
 Use `src/components/Header.astro`.
 
 - Background: `bg-midnight`
-- Logo left, desktop nav centered/right, and two CTAs on the far right
+- Logo left, desktop nav centered/right, and the appointment CTA on the far right
+- Main nav labels: `Our Practice`, `Procedures`, `Doctors`, `Patient Resources`, and `Contact`
 - Nav anchors: `#about`, `#procedures`, `#team`, `#appointment`
-- Show `Patient Resources` as a non-interactive desktop and mobile nav placeholder until its destination is supplied
+- Show `Patient Resources` as a desktop and mobile dropdown with `Refer a Patient` linking to `/refer-a-patient/`, `Payment Plans` linking to `/payment-plans/`, `Surgical Instructions` linking to `/surgical-instructions/`, `First Visit` linking to `/first-visit/`, `Dental Anxiety & Phobia` linking to `/dental-anxiety-and-phobia/`, and `Why Choose Our Practice` linking to `/why-choose-our-practice/`
+- The referral landing page links to the internal form at `/refer-a-patient/form/`; its POST stub is `/api/referral`
 - Mobile/tablet uses the existing `details` menu until the `lg` breakpoint; the opened menu is a full-height panel below the 76px header using `100dvh`
-- CTAs: solid `Request Appointment` button to `#appointment`; bordered `Referring Doctors` button to `/referring-doctors`
+- CTA: solid `Request Appointment` button to `#appointment`
 
 ### Hero
 
@@ -97,7 +99,7 @@ Use `src/components/CallToAction.astro`.
 - Background: `bg-aqua-soft`
 - Two-column desktop layout
 - Left column has request eyebrow, serif heading, short body copy, and address/phone/hours details
-- Right column has a white form panel with first/last name, email, phone, reason select, message, and a full-width teal submit button
+- Right column has a white form panel with first/last name, email, phone, reason select, message, and a full-width deep-blue submit button
 - The form is currently static with `action="#"`; wire it to a backend endpoint only when one is provided
 
 ### Footer
@@ -106,7 +108,7 @@ Use `src/components/Footer.astro`.
 
 - Background: `bg-midnight`
 - Keep simple: logo, short tagline, office details, and phone
-- Current phone number: `(785) 272-0444`
+- Current phone number: sourced from `src/lib/site.ts`
 
 ## Design Tokens
 
@@ -114,8 +116,10 @@ Tokens live in `src/lib/theme.config.ts` and are mirrored in `src/styles/global.
 
 Key colors:
 
-- `midnight`: dark header/hero/footer background
-- `secondary`: active teal for buttons, labels, testimonials, badges, and borders
+- `midnight`: legacy semantic name for the client-approved deep-blue header/hero/footer background
+- `secondary`: accessible deep blue for buttons and labels on light surfaces
+- `accent`: client cyan (`#47c4d4`), used as the dominant color for testimonials, consultation bands, and repeated highlights with white text
+- `brand-blue` and `brand-cyan`: supporting shades in the client-approved blue-to-cyan range
 - `surface`: white panels and cards
 - `aqua-soft`: pale blue section background
 - `aqua-pale`: pale numbered-badge background

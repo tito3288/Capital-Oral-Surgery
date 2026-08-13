@@ -1,0 +1,109 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title =
+  "Payment Plans | Capital Oral Surgery and Dental Implants, Topeka KS";
+const description =
+  "Flexible payment plans through Cherry — buy now, pay monthly for oral surgery and dental implant treatment in Topeka, KS.";
+---
+
+<Layout title={title} description={description} ogImage="/images/specialized-care.jpg">
+  <Header />
+  <main>
+    <section class="bg-midnight text-surface" aria-labelledby="payment-plans-heading">
+      <div
+        class="mx-auto grid min-h-[calc(100dvh-76px)] max-w-7xl items-center gap-10 px-5 py-14 lg:gap-14 xl:grid-cols-[minmax(0,610px)_minmax(360px,500px)] xl:justify-between xl:px-0"
+      >
+        <div data-reveal>
+          <a
+            href="/"
+            class="inline-flex text-sm font-bold text-accent transition-colors hover:text-surface"
+          >
+            ← Home
+          </a>
+          <p class="mt-10 text-xs font-bold tracking-[.34em] text-secondary">
+            Patient Resources
+          </p>
+          <h1
+            id="payment-plans-heading"
+            class="serif mt-5 max-w-[760px] text-5xl leading-[0.96] text-surface sm:text-6xl xl:text-[72px]"
+          >
+            Payment Plans
+          </h1>
+          <p class="mt-7 max-w-[590px] text-lg leading-8 text-surface/75 sm:text-xl">
+            Buy now, pay monthly. Let your money go further and take better control of
+            your cash flow by paying for treatment in smaller, more manageable monthly
+            installments. We offer flexible financing through Cherry.
+          </p>
+        </div>
+
+        <div
+          class="relative mx-auto w-full max-w-[500px] lg:mx-0"
+          data-reveal
+          style="--reveal-delay: 120ms"
+        >
+          <div
+            class="absolute -bottom-3 left-3 right-[-12px] top-3 rounded-lg border border-secondary"
+            aria-hidden="true"
+          >
+          </div>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface/5">
+            <img
+              src="/images/specialized-care.jpg"
+              alt="Dental imaging equipment at Capital Oral Surgery"
+              class="h-full w-full object-cover object-center"
+              width="5184"
+              height="3456"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="bg-background px-5 py-20 text-foreground lg:py-24"
+      aria-label="Cherry financing options"
+    >
+      <div class="mx-auto max-w-7xl">
+        <div id="all"></div>
+
+        <script is:inline>
+            (function (w, d, s, o, f, js, fjs) {
+                w[o] =
+                    w[o] ||
+                    function () {
+                        (w[o].q = w[o].q || []).push(arguments);
+                    };
+                (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+                js.id = o;
+                js.src = f;
+                js.async = 1;
+                fjs.parentNode.insertBefore(js, fjs);
+            })(window, document, "script", "_hw", ' https://files.withcherry.com/widgets/widget.js');
+            _hw(
+                "init",
+                {
+                    debug: false,
+                    variables: {
+                        slug: 'capitaloralsurgerytopeka',
+                        name: 'Capital Oral Surgery and Dental Implants',
+                    },
+                    styles: {
+                        primaryColor: '#00A9BF',
+                        secondaryColor: '#50D5DA',
+                        fontFamily: 'Open Sans',
+                    },
+                },
+                ["all", "hero", "howitworks", "testimony", "faq", "calculator"]
+            );
+        </script>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
